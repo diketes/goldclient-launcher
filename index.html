@@ -67,7 +67,7 @@ nav.solid{background:rgba(7,7,14,.93)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 h1{font-size:clamp(40px,5.6vw,66px);line-height:1.02;font-weight:700;margin-bottom:20px;text-shadow:0 10px 40px rgba(0,0,0,.6)}
 h1 span{background:linear-gradient(135deg,#fff3b0,var(--gold) 50%,#c9a000);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{font-size:18px;color:var(--text2);max-width:540px;margin-bottom:32px}
+.lead{font-size:18.5px;color:#c3c7e0;max-width:540px;margin-bottom:32px}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:22px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-size:12.5px;color:var(--text2);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:6px 12px;border-radius:999px;display:inline-flex;gap:7px;align-items:center}
@@ -97,7 +97,7 @@ section.container{padding:96px 24px}
 .sec-head{text-align:center;max-width:720px;margin:0 auto 54px}
 .kicker{font-family:var(--pixel);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
 .sec-head h2{font-size:clamp(30px,3.8vw,44px);font-weight:700;margin-bottom:14px;line-height:1.12}
-.sec-head p{color:var(--text2);font-size:17px}
+.sec-head p{color:#bfc3dd;font-size:17px}
 .show{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:34px 0}
 .show.rev .show-txt{order:2}
 .show .fico{width:54px;height:54px;border-radius:15px;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,rgba(245,197,24,.2),rgba(245,197,24,.06));border:1px solid rgba(245,197,24,.35);color:var(--gold);margin-bottom:16px;box-shadow:0 8px 24px rgba(245,197,24,.12)}
@@ -165,13 +165,19 @@ section.container{padding:96px 24px}
 #lb-tools button .ic{width:17px;height:17px}
 #lb-zoom{font-family:var(--pixel);font-size:11px;color:var(--text2);min-width:46px;text-align:center}
 #lb-hint{position:absolute;top:70px;left:50%;transform:translateX(-50%);font-size:11.5px;color:var(--text3);pointer-events:none}
-/* z gry */
-.ingame{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.ingame figure{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--bg2)}
-.ingame img{aspect-ratio:16/9;object-fit:cover;width:100%;transition:transform .5s}
-.ingame figure:hover img{transform:scale(1.03)}
-.ingame figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;background:linear-gradient(transparent,rgba(7,7,14,.92));font-size:13.5px;color:var(--text2)}
-.ingame figcaption b{color:var(--text)}
+/* modele 3D w ruchu */
+.turn3d{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:216px;gap:14px}
+.t3{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--bg2);transition:border-color .2s,transform .2s,box-shadow .2s}
+.t3:hover{border-color:rgba(245,197,24,.45);transform:translateY(-3px);box-shadow:0 18px 44px rgba(0,0,0,.5)}
+.t3.wide{grid-column:span 2;grid-row:span 2}
+.t3 video{width:100%;height:100%;object-fit:cover;display:block;background:#0d0c1a}
+.t3.wide video{object-fit:contain}
+.t3 figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;background:linear-gradient(transparent,rgba(7,7,14,.93) 62%)}
+.t3 figcaption b{display:block;font-size:15px;color:var(--text);margin-bottom:2px}
+.t3 figcaption span{font-size:12.5px;color:var(--text2);line-height:1.45;display:block}
+.t3.wide figcaption b{font-size:19px}
+.t3.wide figcaption span{font-size:14px}
+.t3::after{content:'3D';position:absolute;top:10px;right:10px;font-family:var(--pixel);font-size:9px;letter-spacing:1px;color:var(--gold);background:rgba(7,7,14,.8);border:1px solid rgba(245,197,24,.4);padding:3px 7px;border-radius:6px}
 /* feature grid */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
 .card{background:linear-gradient(160deg,var(--bg3),var(--bg2));border:1px solid var(--border);border-radius:var(--radius);padding:26px;transition:transform .2s,border-color .2s,box-shadow .2s;position:relative;overflow:hidden}
@@ -258,7 +264,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
 #top{position:fixed;right:22px;bottom:22px;width:44px;height:44px;border-radius:12px;background:var(--bg3);border:1px solid var(--border2);color:var(--gold);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,border-color .2s;z-index:90}
 #top.show{opacity:1;pointer-events:auto}#top:hover{border-color:var(--gold)}
 @media (max-width:1180px) and (min-width:981px){.ct-grid{grid-template-columns:repeat(5,1fr)}}
-@media (max-width:980px){.hero .container{grid-template-columns:1fr;text-align:center;gap:44px}.lead{margin:0 auto 28px}.hero-actions,.chips{justify-content:center}.frame{transform:none!important}.float,.wing-deco{display:none}.stats{grid-template-columns:repeat(2,1fr)}.show{grid-template-columns:1fr;gap:26px}.show.rev .show-txt{order:0}.platforms,.steps,.ingame{grid-template-columns:1fr}.gal-thumbs{grid-template-columns:repeat(4,1fr)}.ct-grid{grid-template-columns:repeat(3,1fr);gap:9px}.ct figcaption{padding:7px 8px 9px}.ct figcaption b{font-size:11.5px}#lb-hint{display:none}#lb-tools{top:auto;bottom:70px}.lb-btn{width:40px;height:40px}.cos-wrap{padding:22px 16px}section.container{padding:64px 20px}.sec-head{margin-bottom:34px}.author{grid-template-columns:1fr;text-align:center}.author .nick,.author .links{justify-content:center}.nav-links{display:none;position:absolute;top:66px;left:0;right:0;background:rgba(7,7,14,.97);flex-direction:column;padding:18px 24px;gap:16px;border-bottom:1px solid var(--border)}.nav-links.open{display:flex}.burger{display:flex}.cta{padding:32px}}
+@media (max-width:980px){.hero .container{grid-template-columns:1fr;text-align:center;gap:44px}.lead{margin:0 auto 28px}.hero-actions,.chips{justify-content:center}.frame{transform:none!important}.float,.wing-deco{display:none}.stats{grid-template-columns:repeat(2,1fr)}.show{grid-template-columns:1fr;gap:26px}.show.rev .show-txt{order:0}.platforms,.steps{grid-template-columns:1fr}.turn3d{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.t3.wide{grid-column:span 2;grid-row:span 1}.t3 figcaption span{font-size:11.5px}.gal-thumbs{grid-template-columns:repeat(4,1fr)}.ct-grid{grid-template-columns:repeat(3,1fr);gap:9px}.ct figcaption{padding:7px 8px 9px}.ct figcaption b{font-size:11.5px}#lb-hint{display:none}#lb-tools{top:auto;bottom:70px}.lb-btn{width:40px;height:40px}.cos-wrap{padding:22px 16px}section.container{padding:64px 20px}.sec-head{margin-bottom:34px}.author{grid-template-columns:1fr;text-align:center}.author .nick,.author .links{justify-content:center}.nav-links{display:none;position:absolute;top:66px;left:0;right:0;background:rgba(7,7,14,.97);flex-direction:column;padding:18px 24px;gap:16px;border-bottom:1px solid var(--border)}.nav-links.open{display:flex}.burger{display:flex}.cta{padding:32px}}
 </style>
 </head>
 <body>
@@ -267,7 +273,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
   <div class="nav-inner">
     <a class="brand" href="#"><img src="img/logo3d.png" alt="GoldClient">GOLD<span>CLIENT</span></a>
     <div class="nav-links" id="navLinks">
-      <a href="#funkcje">Funkcje</a><a href="#kosmetyki">Kosmetyki</a><a href="#zrzuty">Zrzuty ekranu</a><a href="#pobierz">Pobierz</a><a href="#zmiany">Co nowego</a><a href="#faq">FAQ</a>
+      <a href="#funkcje">Funkcje</a><a href="#kosmetyki">Kosmetyki</a><a href="#ruch">Modele 3D</a><a href="#zrzuty">Zrzuty ekranu</a><a href="#pobierz">Pobierz</a><a href="#zmiany">Co nowego</a><a href="#faq">FAQ</a>
     </div>
     <div style="display:flex;gap:10px;align-items:center">
       <a class="btn btn-gold btn-sm dl-link" href="https://github.com/diketes/goldclient-launcher/releases/latest"><svg class="ic"><use href="img/icons.svg#b-windows"/></svg>Pobierz</a>
@@ -697,11 +703,29 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
   </div>
 </section>
 
-<section class="container">
-  <div class="sec-head rv"><div class="kicker">Z gry</div><h2>Kilka klatek prosto z serwera</h2><p>Zrzuty autora launchera z rozgrywki — tak wygląda codzienne granie z GoldClientem.</p></div>
-  <div class="ingame rv">
-    <figure><img src="img/gra/gra1.webp" alt="Zrzut z gry" loading="lazy" data-zoom data-cap="<b>Zdjęcie grupowe na serwerze</b> — screenshot F2 prosto z gry"><figcaption><b>Zdjęcie grupowe na serwerze</b> — screenshot F2 prosto z gry</figcaption></figure>
-    <figure><img src="img/gra/gra2.webp" alt="Zrzut z gry" loading="lazy" data-zoom data-cap="<b>Ten sam moment, drugi kadr</b> — takie zrzuty launcher zbiera w widżecie Screenshoty"><figcaption><b>Ten sam moment, drugi kadr</b> — takie zrzuty launcher zbiera w widżecie Screenshoty</figcaption></figure>
+<section id="ruch" class="container">
+  <div class="sec-head rv"><div class="kicker">Modele 3D</div><h2>Zobacz kosmetyki w ruchu</h2><p>Nagrane silnikiem 3D launchera. Dokładnie te modele mod rysuje na Twojej postaci w grze.</p></div>
+  <div class="turn3d rv">
+    <figure class="t3 wide">
+      <video src="img/3d/player.mp4" poster="img/cos3d/cape/c26.webp" autoplay muted loop playsinline preload="metadata" aria-label="Postać z peleryną, skrzydłami, aurą i zwierzakiem"></video>
+      <figcaption><b>Cały zestaw na postaci</b><span>peleryna, skrzydła, aura i zwierzak naraz — tak widzą Cię inni gracze z GoldClientem</span></figcaption>
+    </figure>
+    <figure class="t3">
+      <video src="img/3d/crowns-cr2.mp4" poster="img/cos3d/crown/cr2.webp" autoplay muted loop playsinline preload="metadata" aria-label="Obracająca się korona Gold Crown"></video>
+      <figcaption><b>Gold Crown</b><span>lewituje i obraca się nad głową</span></figcaption>
+    </figure>
+    <figure class="t3">
+      <video src="img/3d/capes-c26.mp4" poster="img/cos3d/cape/c26.webp" autoplay muted loop playsinline preload="metadata" aria-label="Animowana peleryna Zachód Słońca"></video>
+      <figcaption><b>Zachód Słońca</b><span>peleryna animowana z 16 klatek</span></figcaption>
+    </figure>
+    <figure class="t3">
+      <video src="img/3d/wings-w1.mp4" poster="img/cos3d/wing/w1.webp" autoplay muted loop playsinline preload="metadata" aria-label="Skrzydła Angel Wings"></video>
+      <figcaption><b>Angel Wings</b><span>machają, gdy biegniesz i latasz</span></figcaption>
+    </figure>
+    <figure class="t3">
+      <video src="img/3d/pets-p1.mp4" poster="img/cos3d/pet/p1.webp" autoplay muted loop playsinline preload="metadata" aria-label="Zwierzak Baby Dragon"></video>
+      <figcaption><b>Baby Dragon</b><span>zwierzak trzyma się przy graczu</span></figcaption>
+    </figure>
   </div>
 </section>
 
@@ -802,7 +826,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
     </div>
     <p class="credits">© 2026 GoldClient · NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT. Minecraft jest znakiem towarowym Mojang AB.<br>
     Kafelki kosmetyków to modele wyrenderowane silnikiem 3D launchera. Zrzuty ekranu pokazują przykładowe dane — ścieżki, adresy serwerów i parametry komputera są zastąpione ogólnymi.<br>
-    Ikony: <a href="https://lucide.dev" target="_blank" rel="noopener">Lucide</a> (ISC) i <a href="https://fontawesome.com" target="_blank" rel="noopener">Font Awesome Brands</a> (CC BY 4.0) · Fonty: Monocraft (Idrees Hassan, OFL), Chakra Petch (Cadson Demak, OFL), Inter (Rasmus Andersson, OFL) · Tekstury skrzydeł na bazie <a href="https://game-icons.net" target="_blank" rel="noopener">game-icons.net</a> (Lorc, Delapouite — CC BY 3.0) · Zdjęcie w pelerynie „Zachód Słońca”: Sultana46681041, Wikimedia Commons, CC BY-SA 4.0 · Render skina: mc-heads.net · Tła: własne zrzuty z gry</p>
+    Ikony: <a href="https://lucide.dev" target="_blank" rel="noopener">Lucide</a> (ISC) i <a href="https://fontawesome.com" target="_blank" rel="noopener">Font Awesome Brands</a> (CC BY 4.0) · Fonty: Monocraft (Idrees Hassan, OFL), Chakra Petch (Cadson Demak, OFL), Inter (Rasmus Andersson, OFL) · Tekstury skrzydeł na bazie <a href="https://game-icons.net" target="_blank" rel="noopener">game-icons.net</a> (Lorc, Delapouite — CC BY 3.0) · Zdjęcie w pelerynie „Zachód Słońca”: Sultana46681041, Wikimedia Commons, CC BY-SA 4.0 · Render skina: mc-heads.net · Tła i animacje: rendery z silnika 3D launchera</p>
   </div>
 </footer>
 <button id="top" aria-label="Do góry"><svg class="ic"><use href="img/icons.svg#i-arrow-up"/></svg></button>
