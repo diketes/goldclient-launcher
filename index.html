@@ -7,7 +7,7 @@
 <meta name="description" content="GoldClient to darmowy launcher do Minecrafta (Fabric): animowane peleryny i kosmetyki widoczne w grze, muzyka z YouTube, mody z Modrinth jednym kliknięciem, statystyki i automatyczne aktualizacje. Pobierz na Windows.">
 <meta property="og:title" content="GoldClient — launcher do Minecrafta">
 <meta property="og:description" content="Kosmetyki w grze, muzyka, mody z Modrinth, statystyki i auto-aktualizacje. Za darmo, na Windows.">
-<meta property="og:image" content="https://diketes.github.io/goldclient-launcher/img/shot-graj.png">
+<meta property="og:image" content="https://diketes.github.io/goldclient-launcher/img/og.jpg">
 <meta property="og:url" content="https://diketes.github.io/goldclient-launcher/">
 <meta name="theme-color" content="#07070e">
 <link rel="icon" href="img/logo3d.png" type="image/png">
@@ -56,8 +56,8 @@ nav.solid{background:rgba(7,7,14,.93)}
 .btn-sm{padding:10px 18px;font-size:13.5px;border-radius:10px}
 /* hero */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 0 90px;overflow:hidden}
-.hero-bg{position:absolute;inset:0;z-index:0;background:url(img/bg.jpg) center/cover no-repeat}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,7,14,.72),rgba(7,7,14,.58) 40%,var(--bg) 100%),radial-gradient(60% 50% at 70% 40%,rgba(245,197,24,.18),transparent 70%)}
+.hero-bg{position:absolute;inset:0;z-index:0;background:url(img/hero-bg.jpg) center/cover no-repeat}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,7,14,.62),rgba(7,7,14,.40) 42%,var(--bg) 100%),radial-gradient(60% 50% at 70% 40%,rgba(245,197,24,.16),transparent 70%)}
 .hero-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(70% 70% at 50% 40%,#000 30%,transparent 100%);-webkit-mask-image:radial-gradient(70% 70% at 50% 40%,#000 30%,transparent 100%)}
 #particles{position:absolute;inset:0;z-index:0;pointer-events:none}
 .wing-deco{position:absolute;z-index:0;width:520px;opacity:.07;filter:drop-shadow(0 0 30px rgba(245,197,24,.6));pointer-events:none;top:8%;left:-140px;transform:scaleX(-1) rotate(8deg)}
@@ -121,30 +121,50 @@ section.container{padding:96px 24px}
 .cape-card .live{display:inline-flex;align-items:center;gap:6px;font-family:var(--pixel);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
 .cape-card .live i{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red);animation:pulse 1.2s infinite}
 /* cosmetics showcase */
-.cos-wrap{background:linear-gradient(180deg,var(--bg2),var(--bg));border:1px solid var(--border);border-radius:22px;padding:34px;margin-top:10px}
+.cos-wrap{position:relative;background:linear-gradient(180deg,rgba(12,12,26,.92),rgba(7,7,14,.97)),url(img/cos-bg.jpg) center/cover no-repeat;border:1px solid var(--border);border-radius:22px;padding:34px;margin-top:10px;overflow:hidden}
 .cos-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap}
 .cos-row h3{font-size:20px}
 .cos-row span{font-size:13px;color:var(--text3)}
-.wings{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-bottom:30px}
-.wing{position:relative;aspect-ratio:1;border-radius:14px;background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.06),transparent 70%),var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:transform .2s,border-color .2s}
-.wing img{width:78%;height:78%;object-fit:contain;filter:drop-shadow(0 0 8px rgba(245,197,24,.55))}
-.wing.locked img{opacity:.55;filter:saturate(.55) drop-shadow(0 0 6px rgba(0,0,0,.6))}
-.wing:hover{transform:translateY(-3px);border-color:rgba(245,197,24,.4)}
-.wing .lk{position:absolute;bottom:7px;left:7px;font-family:var(--pixel);font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--text2);background:rgba(7,7,14,.8);border:1px solid var(--border2);padding:3px 7px;border-radius:6px;display:flex;gap:4px;align-items:center}
-.wing .lk .ic{width:10px;height:10px}
-.wing.free .lk{color:var(--gold);border-color:rgba(245,197,24,.5)}
-.wing .nm{position:absolute;top:7px;left:7px;right:7px;font-size:11px;color:var(--text2);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pets{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
-.pet{position:relative;aspect-ratio:1;border-radius:12px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:transform .2s,border-color .2s}
-.pet img{width:60%;height:60%;image-rendering:pixelated}
-.pet.locked img{opacity:.6;filter:saturate(.6)}
-.pet:hover{transform:translateY(-3px);border-color:rgba(245,197,24,.4)}
-.pet.free::after{content:'';position:absolute;top:6px;right:6px;width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold)}
-.pet .tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--bg4);border:1px solid var(--border2);padding:4px 8px;border-radius:6px;font-size:11px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s}
-.pet:hover .tip{opacity:1}
-.cos-foot{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font-size:13px;color:var(--text2)}
+/* kafelki kosmetyków — modele 3D wyrenderowane tym samym silnikiem co szafa w launcherze */
+.ct-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:34px}
+.ct{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--border);background:radial-gradient(120% 90% at 50% 0%,rgba(255,255,255,.05),transparent 60%),var(--bg3);transition:transform .2s,border-color .2s,box-shadow .2s}
+.ct img{width:100%;height:auto;aspect-ratio:448/320;object-fit:cover;display:block;cursor:zoom-in;transition:transform .35s}
+.ct:hover{transform:translateY(-4px);border-color:rgba(245,197,24,.45);box-shadow:0 16px 40px rgba(0,0,0,.45)}
+.ct:hover img{transform:scale(1.07)}
+.ct:not(.free) img{filter:saturate(.72) brightness(.86)}
+.ct figcaption{padding:9px 11px 11px;border-top:1px solid rgba(255,255,255,.05);background:rgba(0,0,0,.25)}
+.ct figcaption b{display:block;font-size:12.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ct figcaption span{font-family:var(--pixel);font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3)}
+.ct.r-leg figcaption span{color:#ff9f2e}.ct.r-epi figcaption span{color:#bb77ff}.ct.r-rar figcaption span{color:#4aa3ff}
+.ct.r-leg{box-shadow:inset 0 -2px 0 rgba(255,140,0,.35)}.ct.r-epi{box-shadow:inset 0 -2px 0 rgba(187,68,255,.3)}.ct.r-rar{box-shadow:inset 0 -2px 0 rgba(34,153,255,.28)}
+.ct-b{position:absolute;top:8px;left:8px;display:inline-flex;gap:4px;align-items:center;font-family:var(--pixel);font-size:8.5px;letter-spacing:.7px;text-transform:uppercase;color:var(--text2);background:rgba(7,7,14,.82);border:1px solid var(--border2);padding:3px 7px;border-radius:20px}
+.ct-b .ic{width:10px;height:10px}
+.ct-b.free{color:#1a1400;background:var(--gold);border-color:var(--gold)}
+.ct-anim{position:absolute;top:8px;right:8px;font-family:var(--pixel);font-size:8px;letter-spacing:.8px;color:#e9d5ff;background:rgba(138,43,226,.85);padding:3px 6px;border-radius:6px}
+.cos-foot{display:flex;gap:18px;flex-wrap:wrap;margin-top:4px;font-size:13px;color:var(--text2)}
 .cos-foot span{display:inline-flex;gap:7px;align-items:center}
 .cos-foot .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold)}
+/* powiększanie obrazów (lightbox) */
+[data-zoom]{cursor:zoom-in}
+#lb{position:fixed;inset:0;z-index:200;background:rgba(4,4,10,.94);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;overflow:hidden}
+#lb.on{display:flex}
+#lb-img{max-width:94vw;max-height:82vh;border-radius:10px;box-shadow:0 30px 90px rgba(0,0,0,.8);transform-origin:center;transition:transform .18s ease-out;cursor:grab;touch-action:none;user-select:none;-webkit-user-drag:none}
+#lb-img.zoomed{cursor:grab;max-width:none;max-height:none;transition:transform .12s ease-out}
+#lb-img.drag{cursor:grabbing;transition:none}
+#lb-cap{position:absolute;left:0;right:0;bottom:0;padding:18px 24px 22px;text-align:center;font-size:14px;color:var(--text2);background:linear-gradient(transparent,rgba(4,4,10,.9));pointer-events:none}
+#lb-cap b{color:var(--text)}
+.lb-btn{position:absolute;width:46px;height:46px;border-radius:50%;background:rgba(20,20,38,.85);border:1px solid var(--border2);color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s,background .2s}
+.lb-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(20,20,38,.98)}
+.lb-btn .ic{width:20px;height:20px}
+#lb-close{top:18px;right:18px}
+#lb-prev{left:18px;top:50%;margin-top:-23px}
+#lb-next{right:18px;top:50%;margin-top:-23px}
+#lb-tools{position:absolute;top:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;align-items:center;background:rgba(20,20,38,.85);border:1px solid var(--border2);border-radius:999px;padding:5px 8px}
+#lb-tools button{width:32px;height:32px;border-radius:50%;background:none;border:none;color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center}
+#lb-tools button:hover{color:var(--gold)}
+#lb-tools button .ic{width:17px;height:17px}
+#lb-zoom{font-family:var(--pixel);font-size:11px;color:var(--text2);min-width:46px;text-align:center}
+#lb-hint{position:absolute;top:70px;left:50%;transform:translateX(-50%);font-size:11.5px;color:var(--text3);pointer-events:none}
 /* z gry */
 .ingame{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .ingame figure{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--bg2)}
@@ -168,7 +188,7 @@ section.container{padding:96px 24px}
 .gal-main img{width:100%;height:auto;transition:opacity .25s}
 .gal-cap{position:absolute;left:0;right:0;bottom:0;padding:14px 18px;background:linear-gradient(transparent,rgba(7,7,14,.9));font-size:14px;color:var(--text2)}
 .gal-cap b{color:var(--text)}
-.gal-thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.gal-thumbs{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
 .gal-thumbs button{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:6px;cursor:pointer;transition:border-color .2s,transform .2s;text-align:left;font-family:var(--body)}
 .gal-thumbs button img{border-radius:8px;opacity:.75;transition:opacity .2s}
 .gal-thumbs button span{display:block;font-size:12px;color:var(--text2);padding:6px 4px 2px;font-weight:600}
@@ -237,7 +257,8 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
 .rv.in{opacity:1;transform:none}
 #top{position:fixed;right:22px;bottom:22px;width:44px;height:44px;border-radius:12px;background:var(--bg3);border:1px solid var(--border2);color:var(--gold);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,border-color .2s;z-index:90}
 #top.show{opacity:1;pointer-events:auto}#top:hover{border-color:var(--gold)}
-@media (max-width:980px){.hero .container{grid-template-columns:1fr;text-align:center;gap:44px}.lead{margin:0 auto 28px}.hero-actions,.chips{justify-content:center}.frame{transform:none!important}.float,.wing-deco{display:none}.stats{grid-template-columns:repeat(2,1fr)}.show{grid-template-columns:1fr;gap:26px}.show.rev .show-txt{order:0}.platforms,.steps,.ingame{grid-template-columns:1fr}.gal-thumbs{grid-template-columns:repeat(3,1fr)}.wings{grid-template-columns:repeat(3,1fr)}.wing .nm{display:none}.wing .lk{font-size:8px;padding:2px 5px;bottom:5px;left:5px}.pets{grid-template-columns:repeat(6,1fr)}.cos-wrap{padding:22px 16px}section.container{padding:64px 20px}.sec-head{margin-bottom:34px}.author{grid-template-columns:1fr;text-align:center}.author .nick,.author .links{justify-content:center}.nav-links{display:none;position:absolute;top:66px;left:0;right:0;background:rgba(7,7,14,.97);flex-direction:column;padding:18px 24px;gap:16px;border-bottom:1px solid var(--border)}.nav-links.open{display:flex}.burger{display:flex}.cta{padding:32px}}
+@media (max-width:1180px) and (min-width:981px){.ct-grid{grid-template-columns:repeat(5,1fr)}}
+@media (max-width:980px){.hero .container{grid-template-columns:1fr;text-align:center;gap:44px}.lead{margin:0 auto 28px}.hero-actions,.chips{justify-content:center}.frame{transform:none!important}.float,.wing-deco{display:none}.stats{grid-template-columns:repeat(2,1fr)}.show{grid-template-columns:1fr;gap:26px}.show.rev .show-txt{order:0}.platforms,.steps,.ingame{grid-template-columns:1fr}.gal-thumbs{grid-template-columns:repeat(4,1fr)}.ct-grid{grid-template-columns:repeat(3,1fr);gap:9px}.ct figcaption{padding:7px 8px 9px}.ct figcaption b{font-size:11.5px}#lb-hint{display:none}#lb-tools{top:auto;bottom:70px}.lb-btn{width:40px;height:40px}.cos-wrap{padding:22px 16px}section.container{padding:64px 20px}.sec-head{margin-bottom:34px}.author{grid-template-columns:1fr;text-align:center}.author .nick,.author .links{justify-content:center}.nav-links{display:none;position:absolute;top:66px;left:0;right:0;background:rgba(7,7,14,.97);flex-direction:column;padding:18px 24px;gap:16px;border-bottom:1px solid var(--border)}.nav-links.open{display:flex}.burger{display:flex}.cta{padding:32px}}
 </style>
 </head>
 <body>
@@ -257,7 +278,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
 
 <header class="hero">
   <div class="hero-bg"></div><div class="hero-grid"></div><canvas id="particles"></canvas>
-  <img class="wing-deco" src="img/cos/wing/w1.png" alt="" aria-hidden="true">
+  <img class="wing-deco" src="img/cos3d/wing/w1.webp" alt="" aria-hidden="true">
   <div class="container">
     <div>
       <div class="eyebrow"><i></i> Darmowy launcher do Minecrafta</div>
@@ -276,7 +297,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
       </div>
     </div>
     <div class="hero-visual" id="heroVisual">
-      <div class="frame" id="frame"><img src="img/shot-graj.png" alt="GoldClient — ekran główny launchera" width="1180" height="720"></div>
+      <div class="frame" id="frame"><img src="img/shot/shot-graj.webp" alt="GoldClient — ekran główny launchera" width="2360" height="1440" data-zoom data-cap="<b>Graj</b> — ekran główny launchera"></div>
       <div class="float f1"><span class="fi"><svg class="ic"><use href="img/icons.svg#i-crown"/></svg></span><div>Kosmetyki w grze<small>animowana peleryna + 8 kategorii</small></div></div>
       <div class="float f2"><span class="fi"><svg class="ic"><use href="img/icons.svg#i-music"/></svg></span><div>Muzyka z YouTube<small>odtwarzacz także w grze</small></div></div>
       <div class="float f3"><span class="fi"><svg class="ic"><use href="img/icons.svg#i-puzzle"/></svg></span><div>Mody z Modrinth<small>jedno kliknięcie</small></div></div>
@@ -312,7 +333,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
         <div><div class="live"><i></i> Na żywo</div><h4>Peleryna „Zachód Słońca”</h4><p>Dokładnie ta tekstura, którą zobaczysz na plecach w grze — animacja odtwarzana z prawdziwych klatek.</p></div>
       </div>
     </div>
-    <div class="frame"><img src="img/shot-kosmetyki.png" alt="Szafa kosmetyków GoldClient" loading="lazy"></div>
+    <div class="frame"><img src="img/shot/shot-kosmetyki.webp" alt="Szafa kosmetyków GoldClient" width="2360" height="1440" loading="lazy" data-zoom data-cap="<b>Szafa kosmetyków</b> — podgląd 3D postaci i karty przedmiotów"></div>
   </div>
 
   <div class="show rev rv">
@@ -322,7 +343,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
       <p>Wbudowana wyszukiwarka pobiera właściwą wersję moda dla Twojego Minecrafta. Fabric API dobiera się automatycznie, a mody niezgodne z wybraną wersją są wyłączane, zamiast wywalać grę.</p>
       <ul><li><svg class="ic"><use href="img/icons.svg#i-check"/></svg>Przełączniki włącz/wyłącz przy każdym modzie</li><li><svg class="ic"><use href="img/icons.svg#i-check"/></svg>Automatyczna kontrola zgodności po zmianie wersji</li><li><svg class="ic"><use href="img/icons.svg#i-check"/></svg>Analiza crash-raportu z podpowiedzią, który mod zawinił</li></ul>
     </div>
-    <div class="frame"><img src="img/shot-mody.png" alt="Zarządzanie modami" loading="lazy"></div>
+    <div class="frame"><img src="img/shot/shot-mody.webp" alt="Zarządzanie modami" width="2360" height="1440" loading="lazy" data-zoom data-cap="<b>Mody</b> — lista modów z przełącznikami i wyszukiwarką Modrinth"></div>
   </div>
 
   <div class="show rv">
@@ -332,7 +353,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
       <p>Wklejasz link z YouTube, launcher zapisuje utwór do Twojej playlisty. Odtwarzacz działa w tle, a w Minecrafcie masz mini-odtwarzacz z tytułem, przewijaniem i głośnością.</p>
       <ul><li><svg class="ic"><use href="img/icons.svg#i-check"/></svg>Własne playlisty i muzyka startowa w zestawie</li><li><svg class="ic"><use href="img/icons.svg#i-check"/></svg>Sterowanie z gry: pauza, następny, głośność</li><li><svg class="ic"><use href="img/icons.svg#i-check"/></svg>Widget muzyki w bocznym menu launchera</li></ul>
     </div>
-    <div class="frame"><img src="img/shot-muzyka.png" alt="Odtwarzacz muzyki" loading="lazy"></div>
+    <div class="frame"><img src="img/shot/shot-muzyka.webp" alt="Odtwarzacz muzyki" width="2360" height="1440" loading="lazy" data-zoom data-cap="<b>Muzyka</b> — playlisty i pobieranie z YouTube"></div>
   </div>
 
   <div class="show rev rv">
@@ -342,7 +363,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
       <p>Serwery z prawdziwym pingiem i liczbą graczy, przycisk „Dołącz”, który wrzuca Cię prosto na serwer, czas gry dzień po dniu, galeria screenshotów i newsy Minecrafta.</p>
       <ul><li><svg class="ic"><use href="img/icons.svg#i-check"/></svg>Status usług Mojang na żywo</li><li><svg class="ic"><use href="img/icons.svg#i-check"/></svg>Wykrywanie Javy, presety JVM i profile grafiki</li><li><svg class="ic"><use href="img/icons.svg#i-check"/></svg>Konta Microsoft i konta offline</li></ul>
     </div>
-    <div class="frame"><img src="img/shot-status.png" alt="Status i statystyki" loading="lazy"></div>
+    <div class="frame"><img src="img/shot/shot-status.webp" alt="Status i statystyki" width="2360" height="1440" loading="lazy" data-zoom data-cap="<b>Status</b> — moduły, log i usługi Mojang na żywo"></div>
   </div>
 
   <div class="grid" style="margin-top:40px">
@@ -354,44 +375,324 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
 </section>
 
 <section id="kosmetyki" class="container">
-  <div class="sec-head rv"><div class="kicker">Kosmetyki</div><h2>Co możesz na siebie założyć</h2><p>Prawdziwe tekstury z launchera. Złota kropka i „za darmo” oznaczają rzeczy dostępne od razu, reszta czeka na kolejne aktualizacje.</p></div>
+  <div class="sec-head rv"><div class="kicker">Kosmetyki</div><h2>Co możesz na siebie założyć</h2><p>Każdy kafelek to model wyrenderowany silnikiem 3D z launchera — dokładnie tak wygląda w szafie i na postaci w grze. Kliknij, żeby powiększyć.</p></div>
   <div class="cos-wrap rv">
-    <div class="cos-row"><h3>Skrzydła</h3><span>14 wzorów · klasyczne i HD</span></div>
-    <div class="wings">
-      <div class="wing free" title="Angel Wings"><span class="nm">Angel Wings</span><img src="img/cos/wing/w1.png" alt="Angel Wings" loading="lazy"><span class="lk"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span></div>
-      <div class="wing locked" title="Dark Wings"><span class="nm">Dark Wings</span><img src="img/cos/wing/w2.png" alt="" loading="lazy"><span class="lk"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span></div>
-      <div class="wing locked" title="Dragon Wings"><span class="nm">Dragon Wings</span><img src="img/cos/wing/w3.png" alt="" loading="lazy"><span class="lk"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span></div>
-      <div class="wing locked" title="Crystal Wings"><span class="nm">Crystal Wings</span><img src="img/cos/wing/w4.png" alt="" loading="lazy"><span class="lk"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span></div>
-      <div class="wing locked" title="Feather Wings"><span class="nm">Feather Wings</span><img src="img/cos/wing/w5.png" alt="" loading="lazy"><span class="lk"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span></div>
-      <div class="wing locked" title="Phoenix Wings"><span class="nm">Phoenix Wings</span><img src="img/cos/wing/w6.png" alt="" loading="lazy"><span class="lk"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span></div>
-      <div class="wing locked" title="Cloud Wings"><span class="nm">Cloud Wings</span><img src="img/cos/wing/w7.png" alt="" loading="lazy"><span class="lk"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span></div>
-      <div class="wing locked" title="Shadow Wings"><span class="nm">Shadow Wings</span><img src="img/cos/wing/w8.png" alt="" loading="lazy"><span class="lk"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span></div>
-      <div class="wing locked" title="Butterfly Wings"><span class="nm">Butterfly Wings</span><img src="img/cos/wing/w9.png" alt="" loading="lazy"><span class="lk"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span></div>
-      <div class="wing locked" title="Skrzydła HD"><span class="nm">HD · 1</span><img src="img/cos/wing/w10.png" alt="" loading="lazy"><span class="lk"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span></div>
-      <div class="wing locked" title="Skrzydła HD"><span class="nm">HD · 2</span><img src="img/cos/wing/w11.png" alt="" loading="lazy"><span class="lk"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span></div>
-      <div class="wing locked" title="Skrzydła HD"><span class="nm">HD · 3</span><img src="img/cos/wing/w12.png" alt="" loading="lazy"><span class="lk"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span></div>
-      <div class="wing locked" title="Skrzydła HD"><span class="nm">HD · 4</span><img src="img/cos/wing/w13.png" alt="" loading="lazy"><span class="lk"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span></div>
-      <div class="wing locked" title="Skrzydła HD"><span class="nm">HD · 5</span><img src="img/cos/wing/w14.png" alt="" loading="lazy"><span class="lk"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span></div>
+    <div class="cos-row" id="k-peleryny"><h3>Peleryny</h3><span>40 wzorów w launcherze · 15 animowanych</span></div>
+    <div class="ct-grid">
+      <figure class="ct r-leg free">
+        <img src="img/cos3d/cape/c26.webp" alt="Zachód Słońca" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Zachód Słońca</b> — legendarny, dostępny od razu">
+        <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span><span class="ct-anim">ANIM</span>
+        <figcaption><b>Zachód Słońca</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/cape/c27.webp" alt="Ocean Waves" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Ocean Waves</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+        <figcaption><b>Ocean Waves</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/cape/c28.webp" alt="Płynąca Lawa" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Płynąca Lawa</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+        <figcaption><b>Płynąca Lawa</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/cape/c29.webp" alt="Matrix" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Matrix</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+        <figcaption><b>Matrix</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-rar">
+        <img src="img/cos3d/cape/c30.webp" alt="RGB Cycle" width="448" height="320" loading="lazy" data-zoom data-cap="<b>RGB Cycle</b> — rzadki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+        <figcaption><b>RGB Cycle</b><span>Rzadki</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/cape/c31.webp" alt="GoldClient G" width="448" height="320" loading="lazy" data-zoom data-cap="<b>GoldClient G</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+        <figcaption><b>GoldClient G</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/cape/c33.webp" alt="Galaktyka" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Galaktyka</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+        <figcaption><b>Galaktyka</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/cape/c34.webp" alt="Zorza Polarna" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Zorza Polarna</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+        <figcaption><b>Zorza Polarna</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-rar">
+        <img src="img/cos3d/cape/c35.webp" alt="Wodospad" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Wodospad</b> — rzadki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+        <figcaption><b>Wodospad</b><span>Rzadki</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/cape/c37.webp" alt="Ognisko" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Ognisko</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+        <figcaption><b>Ognisko</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-rar">
+        <img src="img/cos3d/cape/c38.webp" alt="Śnieżyca" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Śnieżyca</b> — rzadki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+        <figcaption><b>Śnieżyca</b><span>Rzadki</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/cape/c39.webp" alt="Planeta Ziemia" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Planeta Ziemia</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+        <figcaption><b>Planeta Ziemia</b><span>Legendarny</span></figcaption>
+      </figure>
     </div>
-    <div class="cos-row"><h3>Zwierzaki</h3><span>12 towarzyszy chodzących za graczem</span></div>
-    <div class="pets">
-      <div class="pet locked"><span class="tip">Baby Dragon</span><img src="img/cos/pet/p1.png" alt="Baby Dragon" loading="lazy"></div>
-      <div class="pet locked"><span class="tip">Fox</span><img src="img/cos/pet/p2.png" alt="Fox" loading="lazy"></div>
-      <div class="pet free"><span class="tip">Cat — za darmo</span><img src="img/cos/pet/p3.png" alt="Cat" loading="lazy"></div>
-      <div class="pet locked"><span class="tip">Bat</span><img src="img/cos/pet/p4.png" alt="Bat" loading="lazy"></div>
-      <div class="pet locked"><span class="tip">Baby Creeper</span><img src="img/cos/pet/p5.png" alt="Baby Creeper" loading="lazy"></div>
-      <div class="pet locked"><span class="tip">Parrot</span><img src="img/cos/pet/p6.png" alt="Parrot" loading="lazy"></div>
-      <div class="pet locked"><span class="tip">Snow Golem</span><img src="img/cos/pet/p7.png" alt="Snow Golem" loading="lazy"></div>
-      <div class="pet locked"><span class="tip">Axolotl</span><img src="img/cos/pet/p8.png" alt="Axolotl" loading="lazy"></div>
-      <div class="pet locked"><span class="tip">Enderman</span><img src="img/cos/pet/p9.png" alt="Enderman" loading="lazy"></div>
-      <div class="pet locked"><span class="tip">Baby Pig</span><img src="img/cos/pet/p10.png" alt="Baby Pig" loading="lazy"></div>
-      <div class="pet locked"><span class="tip">Baby Wolf</span><img src="img/cos/pet/p11.png" alt="Baby Wolf" loading="lazy"></div>
-      <div class="pet locked"><span class="tip">Phoenix</span><img src="img/cos/pet/p12.png" alt="Phoenix" loading="lazy"></div>
+    <div class="cos-row" id="k-skrzydla"><h3>Skrzydła</h3><span>10 par · noszone na plecach</span></div>
+    <div class="ct-grid">
+      <figure class="ct r-leg free">
+        <img src="img/cos3d/wing/w1.webp" alt="Angel Wings" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Angel Wings</b> — legendarny, dostępny od razu">
+        <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span>
+        <figcaption><b>Angel Wings</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/wing/w2.webp" alt="Dark Wings" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Dark Wings</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Dark Wings</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/wing/w3.webp" alt="Dragon Wings" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Dragon Wings</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Dragon Wings</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-rar">
+        <img src="img/cos3d/wing/w4.webp" alt="Crystal Wings" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Crystal Wings</b> — rzadki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Crystal Wings</b><span>Rzadki</span></figcaption>
+      </figure>
+      <figure class="ct r-rar">
+        <img src="img/cos3d/wing/w5.webp" alt="Feather Wings" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Feather Wings</b> — rzadki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Feather Wings</b><span>Rzadki</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/wing/w10.webp" alt="Wielkie Anielskie" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Wielkie Anielskie</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Wielkie Anielskie</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/wing/w11.webp" alt="Smocze Ostrza" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Smocze Ostrza</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Smocze Ostrza</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/wing/w12.webp" alt="Tęczowy Motyl" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Tęczowy Motyl</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Tęczowy Motyl</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/wing/w13.webp" alt="Feniks Heraldyczny" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Feniks Heraldyczny</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Feniks Heraldyczny</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/wing/w14.webp" alt="Wróżkowe" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Wróżkowe</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Wróżkowe</b><span>Epicki</span></figcaption>
+      </figure>
+    </div>
+    <div class="cos-row" id="k-korony"><h3>Korony</h3><span>18 modeli · lewitują nad głową</span></div>
+    <div class="ct-grid">
+      <figure class="ct r-leg free">
+        <img src="img/cos3d/crown/cr1.webp" alt="Diamond Crown" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Diamond Crown</b> — legendarny, dostępny od razu">
+        <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span>
+        <figcaption><b>Diamond Crown</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/crown/cr2.webp" alt="Gold Crown" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Gold Crown</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Gold Crown</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-rar">
+        <img src="img/cos3d/crown/cr3.webp" alt="Ruby Crown" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Ruby Crown</b> — rzadki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Ruby Crown</b><span>Rzadki</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/crown/cr4.webp" alt="Void Crown" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Void Crown</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Void Crown</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-com">
+        <img src="img/cos3d/crown/cr5.webp" alt="Laurel Wreath" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Laurel Wreath</b> — zwykły, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Laurel Wreath</b><span>Zwykły</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/crown/cr6.webp" alt="Frost Crown" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Frost Crown</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Frost Crown</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/crown/cr7.webp" alt="Obsidian Crown" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Obsidian Crown</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Obsidian Crown</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-rar">
+        <img src="img/cos3d/crown/cr8.webp" alt="Nature Crown" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Nature Crown</b> — rzadki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Nature Crown</b><span>Rzadki</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/crown/cr9.webp" alt="Blood Crown" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Blood Crown</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Blood Crown</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/crown/cr10.webp" alt="Aureola" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Aureola</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Aureola</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/crown/cr11.webp" alt="Korona Królewska" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Korona Królewska</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Korona Królewska</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/crown/cr12.webp" alt="Neon RGB" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Neon RGB</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Neon RGB</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/crown/cr13.webp" alt="Cesarska" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Cesarska</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Cesarska</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/crown/cr14.webp" alt="Smocza" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Smocza</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Smocza</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/crown/cr15.webp" alt="Słoneczna" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Słoneczna</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Słoneczna</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/crown/cr16.webp" alt="Lodowa Królowa" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Lodowa Królowa</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Lodowa Królowa</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/crown/cr17.webp" alt="Piekielna" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Piekielna</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Piekielna</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/crown/cr18.webp" alt="Galaktyczna" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Galaktyczna</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Galaktyczna</b><span>Legendarny</span></figcaption>
+      </figure>
+    </div>
+    <div class="cos-row" id="k-zwierzaki"><h3>Zwierzaki</h3><span>20 towarzyszy · chodzą przy graczu</span></div>
+    <div class="ct-grid">
+      <figure class="ct r-leg">
+        <img src="img/cos3d/pet/p1.webp" alt="Baby Dragon" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Baby Dragon</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Baby Dragon</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/pet/p2.webp" alt="Fox" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Fox</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Fox</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-rar free">
+        <img src="img/cos3d/pet/p3.webp" alt="Cat" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Cat</b> — rzadki, dostępny od razu">
+        <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span>
+        <figcaption><b>Cat</b><span>Rzadki</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/pet/p4.webp" alt="Bat" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Bat</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Bat</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/pet/p5.webp" alt="Baby Creeper" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Baby Creeper</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Baby Creeper</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-rar">
+        <img src="img/cos3d/pet/p6.webp" alt="Parrot" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Parrot</b> — rzadki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Parrot</b><span>Rzadki</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/pet/p7.webp" alt="Snow Golem" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Snow Golem</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Snow Golem</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-rar">
+        <img src="img/cos3d/pet/p8.webp" alt="Axolotl" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Axolotl</b> — rzadki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Axolotl</b><span>Rzadki</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/pet/p9.webp" alt="Enderman Pet" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Enderman Pet</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Enderman Pet</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-com">
+        <img src="img/cos3d/pet/p10.webp" alt="Baby Pig" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Baby Pig</b> — zwykły, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Baby Pig</b><span>Zwykły</span></figcaption>
+      </figure>
+      <figure class="ct r-rar">
+        <img src="img/cos3d/pet/p11.webp" alt="Baby Wolf" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Baby Wolf</b> — rzadki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Baby Wolf</b><span>Rzadki</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/pet/p12.webp" alt="Phoenix Bird" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Phoenix Bird</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Phoenix Bird</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/pet/p13.webp" alt="Panda" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Panda</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Panda</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/pet/p14.webp" alt="Pszczoła" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Pszczoła</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Pszczoła</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/pet/p15.webp" alt="Allay" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Allay</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Allay</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/pet/p16.webp" alt="Duszek" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Duszek</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Duszek</b><span>Epicki</span></figcaption>
+      </figure>
+      <figure class="ct r-rar">
+        <img src="img/cos3d/pet/p17.webp" alt="Żółw" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Żółw</b> — rzadki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Żółw</b><span>Rzadki</span></figcaption>
+      </figure>
+      <figure class="ct r-rar">
+        <img src="img/cos3d/pet/p18.webp" alt="Sowa" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Sowa</b> — rzadki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Sowa</b><span>Rzadki</span></figcaption>
+      </figure>
+      <figure class="ct r-leg">
+        <img src="img/cos3d/pet/p19.webp" alt="T-Rex" width="448" height="320" loading="lazy" data-zoom data-cap="<b>T-Rex</b> — legendarny, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>T-Rex</b><span>Legendarny</span></figcaption>
+      </figure>
+      <figure class="ct r-epi">
+        <img src="img/cos3d/pet/p20.webp" alt="Robo-Dron" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Robo-Dron</b> — epicki, pojawi się w kolejnej aktualizacji">
+        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+        <figcaption><b>Robo-Dron</b><span>Epicki</span></figcaption>
+      </figure>
     </div>
     <div class="cos-foot">
-      <span><i class="dot"></i> dostępne od razu</span>
-      <span><svg class="ic" style="color:var(--text3)"><use href="img/icons.svg#i-lock"/></svg> pojawi się w kolejnych aktualizacjach</span>
-      <span><svg class="ic" style="color:var(--gold)"><use href="img/icons.svg#i-crown"/></svg> do tego korony, aury, efekty, czapki, buty i rękawice</span>
+      <span><i class="dot"></i> „za darmo” = dostępne od razu po instalacji</span>
+      <span><svg class="ic" style="color:var(--text3)"><use href="img/icons.svg#i-lock"/></svg> przygaszone pojawią się w kolejnych aktualizacjach</span>
+      <span><svg class="ic" style="color:var(--gold)"><use href="img/icons.svg#i-sparkles"/></svg> do tego aury, efekty, nakrycia głowy, buty i rękawice</span>
     </div>
   </div>
 </section>
@@ -399,21 +700,23 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
 <section class="container">
   <div class="sec-head rv"><div class="kicker">Z gry</div><h2>Kilka klatek prosto z serwera</h2><p>Zrzuty autora launchera z rozgrywki — tak wygląda codzienne granie z GoldClientem.</p></div>
   <div class="ingame rv">
-    <figure><img src="img/gra/gra1.png" alt="Zrzut z gry" loading="lazy"><figcaption><b>Zdjęcie grupowe na serwerze</b> — screenshot F2 prosto z gry</figcaption></figure>
-    <figure><img src="img/gra/gra2.png" alt="Zrzut z gry" loading="lazy"><figcaption><b>Ten sam moment, drugi kadr</b> — takie zrzuty launcher zbiera w widżecie Screenshoty</figcaption></figure>
+    <figure><img src="img/gra/gra1.webp" alt="Zrzut z gry" loading="lazy" data-zoom data-cap="<b>Zdjęcie grupowe na serwerze</b> — screenshot F2 prosto z gry"><figcaption><b>Zdjęcie grupowe na serwerze</b> — screenshot F2 prosto z gry</figcaption></figure>
+    <figure><img src="img/gra/gra2.webp" alt="Zrzut z gry" loading="lazy" data-zoom data-cap="<b>Ten sam moment, drugi kadr</b> — takie zrzuty launcher zbiera w widżecie Screenshoty"><figcaption><b>Ten sam moment, drugi kadr</b> — takie zrzuty launcher zbiera w widżecie Screenshoty</figcaption></figure>
   </div>
 </section>
 
 <section id="zrzuty" class="container">
   <div class="sec-head rv"><div class="kicker">Zrzuty ekranu</div><h2>Tak wygląda launcher</h2><p>Ciemny, złoty interfejs z własnymi tłami. Kliknij miniaturę, żeby zobaczyć ekran.</p></div>
   <div class="gallery rv">
-    <div class="gal-main"><img id="galImg" src="img/shot-graj.png" alt="GoldClient"><div class="gal-cap" id="galCap"><b>Graj</b> — serwery, czas gry, screenshoty i newsy na jednym ekranie</div></div>
+    <div class="gal-main"><img id="galImg" src="img/shot/shot-graj.webp" alt="GoldClient — ekran Graj" width="2360" height="1440" data-zoom data-cap="<b>Graj</b> — serwery, czas gry, screenshoty i newsy na jednym ekranie"><div class="gal-cap" id="galCap"><b>Graj</b> — serwery, czas gry, screenshoty i newsy na jednym ekranie</div></div>
     <div class="gal-thumbs" id="galThumbs">
-      <button class="on" data-src="img/shot-graj.png" data-cap="<b>Graj</b> — serwery, czas gry, screenshoty i newsy na jednym ekranie"><img src="img/shot-graj.png" alt="" loading="lazy"><span>Graj</span></button>
-      <button data-src="img/shot-kosmetyki.png" data-cap="<b>Kosmetyki</b> — podgląd 3D postaci, kategorie, animowane peleryny"><img src="img/shot-kosmetyki.png" alt="" loading="lazy"><span>Kosmetyki</span></button>
-      <button data-src="img/shot-mody.png" data-cap="<b>Mody</b> — wyszukiwarka Modrinth i przełączniki jednym kliknięciem"><img src="img/shot-mody.png" alt="" loading="lazy"><span>Mody</span></button>
-      <button data-src="img/shot-muzyka.png" data-cap="<b>Muzyka</b> — playlisty i pobieranie z YouTube"><img src="img/shot-muzyka.png" alt="" loading="lazy"><span>Muzyka</span></button>
-      <button data-src="img/shot-ustawienia.png" data-cap="<b>Ustawienia</b> — RAM, Java, JVM, tła i informacje o systemie"><img src="img/shot-ustawienia.png" alt="" loading="lazy"><span>Ustawienia</span></button>
+      <button class="on" data-src="img/shot/shot-graj.webp" data-cap="<b>Graj</b> — serwery, czas gry, screenshoty i newsy na jednym ekranie"><img src="img/shot/t/shot-graj.webp" alt="" loading="lazy"><span>Graj</span></button>
+      <button data-src="img/shot/shot-kosmetyki.webp" data-cap="<b>Kosmetyki</b> — podgląd 3D postaci, kategorie, animowane peleryny"><img src="img/shot/t/shot-kosmetyki.webp" alt="" loading="lazy"><span>Kosmetyki</span></button>
+      <button data-src="img/shot/shot-korony.webp" data-cap="<b>Korony</b> — modele 3D z podglądem na żywo w szafie"><img src="img/shot/t/shot-korony.webp" alt="" loading="lazy"><span>Korony</span></button>
+      <button data-src="img/shot/shot-mody.webp" data-cap="<b>Mody</b> — wyszukiwarka Modrinth i przełączniki jednym kliknięciem"><img src="img/shot/t/shot-mody.webp" alt="" loading="lazy"><span>Mody</span></button>
+      <button data-src="img/shot/shot-muzyka.webp" data-cap="<b>Muzyka</b> — playlisty i pobieranie z YouTube"><img src="img/shot/t/shot-muzyka.webp" alt="" loading="lazy"><span>Muzyka</span></button>
+      <button data-src="img/shot/shot-ustawienia.webp" data-cap="<b>Ustawienia</b> — RAM, Java, JVM, tła i informacje o systemie"><img src="img/shot/t/shot-ustawienia.webp" alt="" loading="lazy"><span>Ustawienia</span></button>
+      <button data-src="img/shot/shot-status.webp" data-cap="<b>Status</b> — moduły, log aktywności i usługi Mojang na żywo"><img src="img/shot/t/shot-status.webp" alt="" loading="lazy"><span>Status</span></button>
     </div>
   </div>
 </section>
@@ -498,10 +801,26 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
       <div style="display:flex;gap:22px;flex-wrap:wrap"><a href="https://github.com/diketes/goldclient-launcher" target="_blank" rel="noopener"><svg class="ic"><use href="img/icons.svg#b-github"/></svg>GitHub</a><a href="https://github.com/diketes/goldclient-launcher/releases" target="_blank" rel="noopener"><svg class="ic"><use href="img/icons.svg#i-package"/></svg>Wydania</a><a href="https://github.com/diketes/goldclient-launcher/issues" target="_blank" rel="noopener"><svg class="ic"><use href="img/icons.svg#i-bug"/></svg>Zgłoś błąd</a><a href="#pobierz"><svg class="ic"><use href="img/icons.svg#i-download"/></svg>Pobierz</a></div>
     </div>
     <p class="credits">© 2026 GoldClient · NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT. Minecraft jest znakiem towarowym Mojang AB.<br>
-    Ikony: <a href="https://lucide.dev" target="_blank" rel="noopener">Lucide</a> (ISC) i <a href="https://fontawesome.com" target="_blank" rel="noopener">Font Awesome Brands</a> (CC BY 4.0) · Fonty: Monocraft (Idrees Hassan, OFL), Chakra Petch (Cadson Demak, OFL), Inter (Rasmus Andersson, OFL) · Grafiki skrzydeł na bazie <a href="https://game-icons.net" target="_blank" rel="noopener">game-icons.net</a> (Lorc, Delapouite — CC BY 3.0) · Zdjęcie w pelerynie „Zachód Słońca”: Sultana46681041, Wikimedia Commons, CC BY-SA 4.0 · Render skina: mc-heads.net</p>
+    Kafelki kosmetyków to modele wyrenderowane silnikiem 3D launchera. Zrzuty ekranu pokazują przykładowe dane — ścieżki, adresy serwerów i parametry komputera są zastąpione ogólnymi.<br>
+    Ikony: <a href="https://lucide.dev" target="_blank" rel="noopener">Lucide</a> (ISC) i <a href="https://fontawesome.com" target="_blank" rel="noopener">Font Awesome Brands</a> (CC BY 4.0) · Fonty: Monocraft (Idrees Hassan, OFL), Chakra Petch (Cadson Demak, OFL), Inter (Rasmus Andersson, OFL) · Tekstury skrzydeł na bazie <a href="https://game-icons.net" target="_blank" rel="noopener">game-icons.net</a> (Lorc, Delapouite — CC BY 3.0) · Zdjęcie w pelerynie „Zachód Słońca”: Sultana46681041, Wikimedia Commons, CC BY-SA 4.0 · Render skina: mc-heads.net · Tła: własne zrzuty z gry</p>
   </div>
 </footer>
 <button id="top" aria-label="Do góry"><svg class="ic"><use href="img/icons.svg#i-arrow-up"/></svg></button>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Podgląd obrazu">
+  <img id="lb-img" alt="">
+  <div id="lb-tools">
+    <button id="lb-out" title="Pomniejsz (−)" aria-label="Pomniejsz"><svg class="ic"><use href="img/icons.svg#i-minus"/></svg></button>
+    <span id="lb-zoom">100%</span>
+    <button id="lb-in" title="Powiększ (+)" aria-label="Powiększ"><svg class="ic"><use href="img/icons.svg#i-plus"/></svg></button>
+    <button id="lb-reset" title="Dopasuj (0)" aria-label="Dopasuj"><svg class="ic"><use href="img/icons.svg#i-maximize"/></svg></button>
+  </div>
+  <div id="lb-hint">kółko myszy przybliża · przeciągnij, żeby przesunąć · Esc zamyka</div>
+  <button class="lb-btn" id="lb-prev" title="Poprzedni (←)" aria-label="Poprzedni"><svg class="ic"><use href="img/icons.svg#i-chevron-left"/></svg></button>
+  <button class="lb-btn" id="lb-next" title="Następny (→)" aria-label="Następny"><svg class="ic"><use href="img/icons.svg#i-chevron-right"/></svg></button>
+  <button class="lb-btn" id="lb-close" title="Zamknij (Esc)" aria-label="Zamknij"><svg class="ic"><use href="img/icons.svg#i-x"/></svg></button>
+  <div id="lb-cap"></div>
+</div>
 
 <script>
 (function () {
@@ -531,7 +850,95 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
     let f = 0;
     setInterval(() => { const im = frames[f = (f + 1) % 16]; if (im.complete && im.naturalWidth) cctx.drawImage(im, 12, 12, 120, 192, 0, 0, 120, 192); }, 110);
   }
-  $$('#galThumbs button').forEach(b => b.onclick = () => { $$('#galThumbs button').forEach(x => x.classList.remove('on')); b.classList.add('on'); const img = $('#galImg'); img.style.opacity = 0; setTimeout(() => { img.src = b.dataset.src; img.onload = () => img.style.opacity = 1; }, 150); $('#galCap').innerHTML = b.dataset.cap; });
+  $$('#galThumbs button').forEach(b => b.onclick = () => { $$('#galThumbs button').forEach(x => x.classList.remove('on')); b.classList.add('on'); const img = $('#galImg'); img.style.opacity = 0; setTimeout(() => { img.src = b.dataset.src; img.dataset.cap = b.dataset.cap; img.onload = () => img.style.opacity = 1; }, 150); $('#galCap').innerHTML = b.dataset.cap; });
+
+  // ── powiększanie obrazów ──────────────────────────────────────────
+  const lb = $('#lb'), lbImg = $('#lb-img'), lbCap = $('#lb-cap'), lbZoom = $('#lb-zoom');
+  let shots = [], at = 0, sc = 1, tx = 0, ty = 0, drag = null, pointers = new Map(), pinch = 0;
+  const MIN = 1, MAX = 6;
+  const apply = () => {
+    lbImg.style.transform = `translate(${tx}px, ${ty}px) scale(${sc})`;
+    lbImg.classList.toggle('zoomed', sc > 1.01);
+    lbZoom.textContent = Math.round(sc * 100) + '%';
+  };
+  const reset = () => { sc = 1; tx = 0; ty = 0; apply(); };
+  const zoomAt = (factor, cx, cy) => {
+    const next = Math.min(MAX, Math.max(MIN, sc * factor));
+    if (next === sc) return;
+    const r = lbImg.getBoundingClientRect();
+    // punkt pod kursorem ma zostać w tym samym miejscu ekranu
+    const ox = cx - (r.left + r.width / 2), oy = cy - (r.top + r.height / 2);
+    const k = next / sc;
+    tx -= ox * (k - 1); ty -= oy * (k - 1);
+    sc = next;
+    if (sc === MIN) { tx = 0; ty = 0; }
+    apply();
+  };
+  const show = (i) => {
+    if (!shots.length) return;
+    at = (i + shots.length) % shots.length;
+    const el = shots[at];
+    lbImg.src = el.currentSrc || el.src;
+    lbImg.alt = el.alt || '';
+    lbCap.innerHTML = el.dataset.cap || el.alt || '';
+    const many = shots.length > 1;
+    $('#lb-prev').style.display = $('#lb-next').style.display = many ? 'flex' : 'none';
+    reset();
+  };
+  const open = (el) => {
+    // grupa = obrazy z tej samej sekcji, żeby strzałki przeskakiwały po sensownym zestawie
+    const scope = el.closest('section, header') || document;
+    shots = [...scope.querySelectorAll('[data-zoom]')];
+    if (!shots.includes(el)) shots = [el];
+    lb.classList.add('on');
+    document.body.style.overflow = 'hidden';
+    show(shots.indexOf(el));
+  };
+  const close = () => { lb.classList.remove('on'); document.body.style.overflow = ''; lbImg.removeAttribute('src'); };
+  document.addEventListener('click', e => {
+    const el = e.target.closest('[data-zoom]');
+    if (el) { e.preventDefault(); open(el); }
+  });
+  $('#lb-close').onclick = close;
+  $('#lb-prev').onclick = () => show(at - 1);
+  $('#lb-next').onclick = () => show(at + 1);
+  $('#lb-in').onclick = () => zoomAt(1.4, innerWidth / 2, innerHeight / 2);
+  $('#lb-out').onclick = () => zoomAt(1 / 1.4, innerWidth / 2, innerHeight / 2);
+  $('#lb-reset').onclick = reset;
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  lbImg.addEventListener('dblclick', e => { e.preventDefault(); sc > 1.01 ? reset() : zoomAt(2.5, e.clientX, e.clientY); });
+  lb.addEventListener('wheel', e => { e.preventDefault(); zoomAt(e.deltaY < 0 ? 1.18 : 1 / 1.18, e.clientX, e.clientY); }, { passive: false });
+  lbImg.addEventListener('pointerdown', e => {
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointers.size === 2) { const [a, b] = [...pointers.values()]; pinch = Math.hypot(a.x - b.x, a.y - b.y); return; }
+    if (sc <= 1.01) return;
+    drag = { x: e.clientX - tx, y: e.clientY - ty };
+    lbImg.classList.add('drag'); lbImg.setPointerCapture(e.pointerId);
+  });
+  lbImg.addEventListener('pointermove', e => {
+    if (!pointers.has(e.pointerId)) return;
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointers.size === 2) {
+      const [a, b] = [...pointers.values()];
+      const d = Math.hypot(a.x - b.x, a.y - b.y);
+      if (pinch) zoomAt(d / pinch, (a.x + b.x) / 2, (a.y + b.y) / 2);
+      pinch = d; return;
+    }
+    if (!drag) return;
+    tx = e.clientX - drag.x; ty = e.clientY - drag.y; apply();
+  });
+  const endPtr = e => { pointers.delete(e.pointerId); if (pointers.size < 2) pinch = 0; if (!pointers.size) { drag = null; lbImg.classList.remove('drag'); } };
+  lbImg.addEventListener('pointerup', endPtr);
+  lbImg.addEventListener('pointercancel', endPtr);
+  addEventListener('keydown', e => {
+    if (!lb.classList.contains('on')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') show(at - 1);
+    else if (e.key === 'ArrowRight') show(at + 1);
+    else if (e.key === '+' || e.key === '=') zoomAt(1.4, innerWidth / 2, innerHeight / 2);
+    else if (e.key === '-') zoomAt(1 / 1.4, innerWidth / 2, innerHeight / 2);
+    else if (e.key === '0') reset();
+  });
   (async () => {
     try {
       const r = await fetch('https://api.github.com/repos/diketes/goldclient-launcher/releases?per_page=10', { headers: { Accept: 'application/vnd.github+json' } });
