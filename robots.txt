@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://diketes.github.io/goldclient-launcher/sitemap.xml
