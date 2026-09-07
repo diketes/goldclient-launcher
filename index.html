@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoldClient — launcher do Minecrafta z kosmetykami, muzyką i modami</title>
+<meta name="description" content="GoldClient to darmowy launcher do Minecrafta (Fabric): animowane peleryny i kosmetyki widoczne w grze, muzyka z YouTube, mody z Modrinth jednym kliknięciem, statystyki i automatyczne aktualizacje. Pobierz na Windows.">
+<meta property="og:title" content="GoldClient — launcher do Minecrafta">
+<meta property="og:description" content="Kosmetyki w grze, muzyka, mody z Modrinth, statystyki i auto-aktualizacje. Za darmo, na Windows.">
+<meta property="og:image" content="img/shot-graj.png">
+<meta name="theme-color" content="#07070e">
+<link rel="icon" href="img/logo3d.png" type="image/png">
+<style>
+:root{--gold:#f5c518;--gold2:#e6b800;--gold3:#b8912c;--bg:#07070e;--bg2:#0c0c1a;--bg3:#111120;--bg4:#181830;--border:#1e1e35;--border2:#2c2c4a;--text:#e8e8f8;--text2:#a0a0c0;--text3:#5c5c80;--green:#4ade80;--red:#f87171;--radius:14px;--max:1120px}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;font-size:15.5px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--max);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.bg-orbs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(110px);opacity:.08}
+.orb-a{width:720px;height:720px;background:radial-gradient(circle,var(--gold),#8b6914);top:-220px;right:-160px;animation:orbA 14s ease-in-out infinite alternate}
+.orb-b{width:520px;height:520px;background:radial-gradient(circle,#5b9bd5,#1e3a6e);bottom:-120px;left:-120px;animation:orbB 17s ease-in-out infinite alternate}
+.orb-c{width:360px;height:360px;background:radial-gradient(circle,#40b870,#0d3a1e);top:52%;left:32%;animation:orbC 20s ease-in-out infinite alternate}
+@keyframes orbA{to{transform:translate(-60px,50px) scale(1.1);opacity:.1}}
+@keyframes orbB{to{transform:translate(50px,-60px) scale(1.15);opacity:.1}}
+@keyframes orbC{to{transform:translate(-40px,40px) scale(1.2);opacity:.06}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,7,14,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:1px;font-size:17px}
+.brand img{width:34px;height:34px}
+.brand span{color:var(--gold)}
+.nav-links{display:flex;gap:26px;font-size:14px;color:var(--text2)}
+.nav-links a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 24px;border-radius:12px;font-weight:700;font-size:15px;border:1px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s;white-space:nowrap}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1400;box-shadow:0 8px 30px rgba(245,197,24,.28)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(245,197,24,.4)}
+.btn-ghost{background:rgba(255,255,255,.04);border-color:var(--border2);color:var(--text)}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.btn-soon{background:rgba(255,255,255,.03);border-color:var(--border);color:var(--text3);cursor:not-allowed}
+.btn small{font-weight:500;opacity:.75;font-size:12px}
+.btn-sm{padding:9px 16px;font-size:13.5px;border-radius:10px}
+.hero{padding:150px 0 70px;display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.25);padding:6px 14px;border-radius:999px;margin-bottom:22px}
+h1{font-size:clamp(38px,5.4vw,60px);line-height:1.06;font-weight:900;letter-spacing:-.5px;margin-bottom:18px}
+h1 span{background:linear-gradient(135deg,#fff3b0,var(--gold),#c9a000);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:18px;color:var(--text2);max-width:520px;margin-bottom:30px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:16px}
+.meta{font-size:13px;color:var(--text3);display:flex;flex-wrap:wrap;gap:6px 18px}
+.meta b{color:var(--text2);font-weight:600}
+.shot{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--border2);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(245,197,24,.08);background:var(--bg2)}
+.shot::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 70%,rgba(7,7,14,.5));pointer-events:none}
+.hero .shot{transform:perspective(1400px) rotateY(-7deg) rotateX(2deg);transition:transform .4s}
+.hero .shot:hover{transform:perspective(1400px) rotateY(0) rotateX(0)}
+section{padding:80px 0}
+.sec-head{text-align:center;max-width:680px;margin:0 auto 46px}
+.sec-head h2{font-size:clamp(28px,3.6vw,40px);font-weight:900;letter-spacing:-.3px;margin-bottom:12px}
+.sec-head p{color:var(--text2);font-size:16.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.card{background:linear-gradient(160deg,var(--bg3),var(--bg2));border:1px solid var(--border);border-radius:var(--radius);padding:26px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:rgba(245,197,24,.35)}
+.card .ico{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.2);margin-bottom:16px}
+.card h3{font-size:17px;margin-bottom:8px}
+.card p{color:var(--text2);font-size:14.5px}
+.tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:rgba(74,222,128,.12);color:var(--green);margin-left:8px;vertical-align:middle}
+.tag.soon{background:rgba(160,160,192,.12);color:var(--text2)}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px}
+.shots figure{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.shots figcaption{padding:12px 16px;font-size:14px;color:var(--text2);border-top:1px solid var(--border)}
+.shots figcaption b{color:var(--text)}
+.platforms{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.plat{background:linear-gradient(160deg,var(--bg3),var(--bg2));border:1px solid var(--border);border-radius:var(--radius);padding:30px;text-align:center}
+.plat.main{border-color:rgba(245,197,24,.45);box-shadow:0 0 0 1px rgba(245,197,24,.15),0 20px 60px rgba(245,197,24,.08)}
+.plat .os{font-size:44px;margin-bottom:8px}
+.plat h3{font-size:20px;margin-bottom:6px}
+.plat p{color:var(--text2);font-size:14px;margin-bottom:18px;min-height:44px}
+.plat .btn{width:100%}
+.note{margin-top:22px;background:rgba(91,155,213,.08);border:1px solid rgba(91,155,213,.25);border-radius:12px;padding:16px 18px;font-size:14px;color:var(--text2)}
+.note b{color:var(--text)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:34px}
+.step{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px}
+.step .n{width:30px;height:30px;border-radius:50%;background:var(--gold);color:#1a1400;font-weight:900;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:14px}
+.step p{font-size:14px;color:var(--text2)}
+.faq{max-width:820px;margin:0 auto}
+details{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:0 20px;margin-bottom:10px}
+summary{cursor:pointer;padding:16px 0;font-weight:700;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';color:var(--gold);font-size:22px;font-weight:400;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 16px;color:var(--text2);font-size:14.5px}
+details code{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:5px;font-size:13px}
+footer{border-top:1px solid var(--border);padding:34px 0 40px;color:var(--text3);font-size:13px}
+.foot-inner{display:flex;flex-wrap:wrap;gap:14px 30px;justify-content:space-between;align-items:center}
+.foot-inner a{color:var(--text2)}
+.disc{margin-top:14px;font-size:12px;max-width:760px}
+.ver-pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--text2);border:1px solid var(--border2);border-radius:999px;padding:4px 10px;margin-left:8px;vertical-align:middle}
+.ver-pill i{width:7px;height:7px;border-radius:50%;background:var(--green);display:inline-block}
+@media (max-width:900px){.hero{grid-template-columns:1fr;padding-top:120px;text-align:center}.lead{margin:0 auto 28px}.hero-actions,.meta{justify-content:center}.hero .shot{transform:none}.nav-links{display:none}}
+</style>
+</head>
+<body>
+<div class="bg-orbs"><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="orb orb-c"></div></div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#"><img src="img/logo3d.png" alt="GoldClient">GOLD<span>CLIENT</span></a>
+    <div class="nav-links">
+      <a href="#funkcje">Funkcje</a><a href="#zrzuty">Zrzuty ekranu</a><a href="#pobierz">Pobierz</a><a href="#faq">FAQ</a>
+      <a href="https://github.com/diketes/goldclient-launcher/releases" target="_blank" rel="noopener">Wydania</a>
+    </div>
+    <a class="btn btn-gold btn-sm dl-link" href="https://github.com/diketes/goldclient-launcher/releases/latest">⬇ Pobierz</a>
+  </div>
+</nav>
+
+<header class="container hero">
+  <div>
+    <div class="eyebrow">✦ Darmowy launcher do Minecrafta</div>
+    <h1>Graj w Minecrafta <span>po swojemu.</span></h1>
+    <p class="lead">GoldClient to launcher z animowanymi pelerynami i kosmetykami widocznymi w grze, muzyką z YouTube, modami z Modrinth jednym kliknięciem i statystykami. Instalujesz raz — aktualizacje przychodzą same.</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold dl-link" href="https://github.com/diketes/goldclient-launcher/releases/latest">⊞ Pobierz na Windows <small class="dl-ver"></small></a>
+      <span class="btn btn-soon" title="Wersja na macOS jest w przygotowaniu"> macOS <small>wkrótce</small></span>
+    </div>
+    <div class="meta"><span><b>Windows 10 / 11</b> · 64-bit</span><span class="dl-size"></span><span>Auto-aktualizacje</span><span>Konto Microsoft lub offline</span></div>
+  </div>
+  <div class="shot"><img src="img/shot-graj.png" alt="GoldClient — ekran główny launchera" width="1180" height="720"></div>
+</header>
+
+<section id="funkcje" class="container">
+  <div class="sec-head"><h2>Wszystko, czego brakuje zwykłemu launcherowi</h2><p>Jeden program: uruchamianie gry, mody, kosmetyki, muzyka i statystyki. Bez grzebania w folderach.</p></div>
+  <div class="grid">
+    <div class="card"><div class="ico">👑</div><h3>Kosmetyki w grze</h3><p>Animowana peleryna „Zachód Słońca”, skrzydła, korona, aura, efekty, czapka, zwierzak, buty i rękawice. Zakładasz w szafie launchera, widzisz w Minecrafcie. Na start po jednym kosmetyku z każdej kategorii za darmo, kolejne wkrótce.</p></div>
+    <div class="card"><div class="ico">🎵</div><h3>Muzyka z YouTube</h3><p>Wklejasz link, launcher pobiera utwór do Twojej playlisty i gra go w tle — także podczas gry, z odtwarzaczem w Minecrafcie.</p></div>
+    <div class="card"><div class="ico">🧩</div><h3>Mody z Modrinth</h3><p>Wyszukiwarka modów wbudowana w launcher. Jedno kliknięcie, poprawna wersja dla Twojego Minecrafta, Fabric API dobiera się samo. Niekompatybilne mody są wyłączane automatycznie.</p></div>
+    <div class="card"><div class="ico">🖥️</div><h3>Serwery i szybkie dołączanie</h3><p>Prawdziwy ping Twoich serwerów z listy, liczba graczy, MOTD i przycisk „Dołącz”, który wrzuca Cię prosto na serwer.</p></div>
+    <div class="card"><div class="ico">📊</div><h3>Statystyki i zrzuty ekranu</h3><p>Czas gry dzień po dniu, ostatnie sesje, galeria screenshotów, newsy Minecrafta i status usług Mojang w jednym miejscu.</p></div>
+    <div class="card"><div class="ico">⚙️</div><h3>Profile grafiki i JVM</h3><p>Wydajność, zrównoważony albo jakość — jednym kliknięciem, z ustawieniami szczegółowymi. Presety JVM pod PvP, wykrywanie Javy i pamięć RAM pod ręką.</p></div>
+    <div class="card"><div class="ico">🔄</div><h3>Aktualizacje same z siebie <span class="tag">nowość</span></h3><p>Launcher sprawdza nową wersję przy starcie, pobiera ją w tle i instaluje. Zawsze masz najnowsze funkcje i poprawki.</p></div>
+    <div class="card"><div class="ico">🎮</div><h3>Wersje 1.8.9 – 1.21.10</h3><p>Fabric dla każdej popularnej wersji Minecrafta, instalowany z poziomu launchera. Konto Microsoft albo konta offline do gry na serwerach non-premium.</p></div>
+  </div>
+</section>
+
+<section id="zrzuty" class="container">
+  <div class="sec-head"><h2>Tak to wygląda</h2><p>Ciemny, złoty interfejs z własnymi tłami. Wszystko w oknie 1180×720, skalowalnym.</p></div>
+  <div class="shots">
+    <figure><img src="img/shot-graj.png" alt="Ekran Graj z widżetami" loading="lazy"><figcaption><b>Graj</b> — serwery, czas gry, screenshoty i newsy na jednym ekranie</figcaption></figure>
+    <figure><img src="img/shot-kosmetyki.png" alt="Szafa kosmetyków" loading="lazy"><figcaption><b>Kosmetyki</b> — podgląd 3D postaci, kategorie, animowane peleryny</figcaption></figure>
+    <figure><img src="img/shot-mody.png" alt="Zarządzanie modami" loading="lazy"><figcaption><b>Mody</b> — wyszukiwarka Modrinth i przełączniki jednym kliknięciem</figcaption></figure>
+    <figure><img src="img/shot-muzyka.png" alt="Odtwarzacz muzyki" loading="lazy"><figcaption><b>Muzyka</b> — playlisty i pobieranie z YouTube</figcaption></figure>
+  </div>
+</section>
+
+<section id="pobierz" class="container">
+  <div class="sec-head"><h2>Pobierz GoldClient</h2><p>Instalator waży około 280 MB, bo ma w środku wszystko: mod GoldClient, muzykę startową i narzędzia do pobierania.</p></div>
+  <div class="platforms">
+    <div class="plat main">
+      <div class="os">⊞</div>
+      <h3>Windows <span class="ver-pill dl-pill" hidden><i></i><span class="dl-ver-txt"></span></span></h3>
+      <p>Windows 10 lub 11, 64-bit. Wymagana Java (launcher sam ją wykryje, polecamy Adoptium 21).</p>
+      <a class="btn btn-gold dl-link" href="https://github.com/diketes/goldclient-launcher/releases/latest">⬇ Pobierz instalator <small class="dl-size-txt"></small></a>
+    </div>
+    <div class="plat">
+      <div class="os"></div>
+      <h3>macOS</h3>
+      <p>Wersja na Maca jest w przygotowaniu. Będzie dostępna w tym samym miejscu, gdy tylko skończymy testy.</p>
+      <span class="btn btn-soon">Wkrótce</span>
+    </div>
+    <div class="plat">
+      <div class="os">📱</div>
+      <h3>iPhone / iPad</h3>
+      <p>Minecraft Java Edition (a więc i mody, kosmetyki i launchery) nie działa na iOS — tam jest tylko Minecraft Bedrock z App Store.</p>
+      <span class="btn btn-soon">Niedostępne</span>
+    </div>
+  </div>
+  <div class="note"><b>Windows pokazuje ostrzeżenie SmartScreen?</b> To normalne przy nowych programach bez płatnego certyfikatu. Kliknij „Więcej informacji” → „Uruchom mimo to”. Instalator pochodzi wyłącznie z naszego GitHuba, a każda aktualizacja jest sprawdzana sumą kontrolną SHA-512.</div>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h4>Pobierz i zainstaluj</h4><p>Uruchom instalator, wybierz folder, gotowe. Skrót pojawi się na pulpicie.</p></div>
+    <div class="step"><div class="n">2</div><h4>Zaloguj się</h4><p>Konto Microsoft (Minecraft premium) albo dodaj konto offline.</p></div>
+    <div class="step"><div class="n">3</div><h4>Wybierz wersję</h4><p>Launcher pobierze Minecrafta, Fabric i mod GoldClient za Ciebie.</p></div>
+    <div class="step"><div class="n">4</div><h4>Graj</h4><p>Załóż kosmetyki w szafie, włącz muzykę i kliknij „Graj”.</p></div>
+  </div>
+</section>
+
+<section id="faq" class="container">
+  <div class="sec-head"><h2>Częste pytania</h2></div>
+  <div class="faq">
+    <details><summary>Czy GoldClient jest darmowy?</summary><p>Tak. Launcher i podstawowe kosmetyki (po jednym z każdej kategorii, w tym animowana peleryna) są za darmo. W przyszłości dojdą płatne kosmetyki, ale nic z tego, co masz teraz, nie zniknie.</p></details>
+    <details><summary>Czy inni gracze widzą moje kosmetyki?</summary><p>Kosmetyki renderuje mod GoldClient, więc widzą je gracze, którzy również grają na GoldClient. Na serwerze nie trzeba niczego instalować.</p></details>
+    <details><summary>Jaką Javę potrzebuję?</summary><p>Launcher wykrywa zainstalowane wersje Javy i sam dobiera właściwą (17 dla starszych wersji, 21 dla 1.21+). Jeśli żadnej nie masz, zainstaluj <a href="https://adoptium.net/" target="_blank" rel="noopener"><code>Adoptium Temurin 21</code></a>.</p></details>
+    <details><summary>Jak działają aktualizacje?</summary><p>Przy każdym uruchomieniu launcher pyta GitHub o nową wersję. Jeśli jest, pobiera ją w tle, pokazuje postęp i instaluje automatycznie. Aktualizacje są obowiązkowe, dzięki czemu wszyscy grają na tej samej, najnowszej wersji.</p></details>
+    <details><summary>Czy muszę mieć Minecrafta premium?</summary><p>Z kontem Microsoft grasz normalnie na wszystkich serwerach. Bez niego możesz dodać konto offline i grać na serwerach non-premium.</p></details>
+    <details><summary>Skąd pobrać i gdzie zgłaszać błędy?</summary><p>Zawsze z <a href="https://github.com/diketes/goldclient-launcher/releases" target="_blank" rel="noopener"><code>github.com/diketes/goldclient-launcher</code></a>. Tam też jest lista zmian każdej wersji i zakładka Issues do zgłaszania problemów.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-inner">
+      <div class="brand"><img src="img/logo3d.png" alt="">GOLD<span>CLIENT</span></div>
+      <div style="display:flex;gap:22px"><a href="https://github.com/diketes/goldclient-launcher" target="_blank" rel="noopener">GitHub</a><a href="https://github.com/diketes/goldclient-launcher/releases" target="_blank" rel="noopener">Wydania</a><a href="#pobierz">Pobierz</a></div>
+    </div>
+    <p class="disc">© 2026 GoldClient. NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT. Minecraft jest znakiem towarowym Mojang AB. Mody pobierane są przez API Modrinth; tekstury przedmiotów należą do Mojang AB.</p>
+  </div>
+</footer>
+
+<script>
+// Najnowsze wydanie z GitHuba: wersja, rozmiar i bezpośredni link do instalatora
+(async function () {
+  const fmtMB = b => Math.round(b / 1048576) + ' MB';
+  try {
+    const r = await fetch('https://api.github.com/repos/diketes/goldclient-launcher/releases/latest', { headers: { Accept: 'application/vnd.github+json' } });
+    if (!r.ok) return;
+    const rel = await r.json();
+    const exe = (rel.assets || []).find(a => /\.exe$/i.test(a.name));
+    if (!exe) return;
+    const ver = String(rel.tag_name || '').replace(/^v/, '');
+    document.querySelectorAll('.dl-link').forEach(a => { a.href = exe.browser_download_url; });
+    document.querySelectorAll('.dl-ver').forEach(el => { el.textContent = 'v' + ver; });
+    document.querySelectorAll('.dl-ver-txt').forEach(el => { el.textContent = 'v' + ver; });
+    document.querySelectorAll('.dl-pill').forEach(el => { el.hidden = false; });
+    document.querySelectorAll('.dl-size').forEach(el => { el.innerHTML = '<b>' + fmtMB(exe.size) + '</b> · ' + new Date(rel.published_at).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' }); });
+    document.querySelectorAll('.dl-size-txt').forEach(el => { el.textContent = fmtMB(exe.size); });
+  } catch (e) { /* zostają linki do strony wydań */ }
+})();
+</script>
+</body>
+</html>
