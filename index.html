@@ -1570,6 +1570,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
         say('Wiadomość wysłana. Odpowiedź przyjdzie na podany adres.', 'ok');
         kForm.reset();
       } catch (err) {
+        console.warn('[kontakt]', err && err.message);
         say('Nie udało się wysłać. Napisz jeszcze raz za chwilę.', 'err');
       } finally {
         kSend.disabled = false;
@@ -1696,7 +1697,10 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
       box.innerHTML = rels.length ? rels.map(x => {
         const ex = (x.assets || []).find(a => /\.exe$/i.test(a.name));
         const d = new Date(x.published_at).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
-        const body = (x.body || '').trim() || 'Aktualizacja launchera.';
+        // opisy wydań piszę w repozytorium; na stronie nie pokazujemy nazw serwisów zewnętrznych
+        const body = ((x.body || '').trim() || 'Aktualizacja launchera.')
+          .replace(/\s*z GitHub[a-ząćęłńóśźż]*/gi, () => ' w tle')
+          .replace(/GitHub[a-ząćęłńóśźż]*/gi, () => 'strony');
         return `<div class="rel"><div class="rel-h"><b>${esc(x.name || x.tag_name)}</b><span>${d}${ex ? ' · ' + fmtMB(ex.size) : ''}</span></div><pre>${esc(body)}</pre>${ex ? `<a href="pobierz.html?v=${encodeURIComponent(x.tag_name)}"><svg class="ic"><use href="img/icons.svg#i-download"/></svg>Pobierz tę wersję</a>` : ''}</div>`;
       }).join('') : '<div class="rel"><div class="rel-h"><b>Brak wydań</b></div></div>';
     } catch (e) {
