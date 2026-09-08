@@ -192,6 +192,30 @@ section.container{padding:96px 24px}
 .road-col li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.45}
 .road-note{display:flex;gap:14px;align-items:flex-start;margin-top:20px;background:rgba(245,197,24,.06);border:1px solid rgba(245,197,24,.22);border-radius:var(--radius);padding:18px 20px;font-size:14.5px;color:var(--text2)}
 .road-note .ic{width:20px;height:20px;color:var(--gold);flex-shrink:0;margin-top:2px}
+/* kontakt */
+.kontakt{display:grid;grid-template-columns:0.85fr 1.15fr;gap:34px;align-items:start}
+.k-info{display:grid;gap:16px}
+.k-item{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(160deg,var(--bg3),var(--bg2));border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.k-ico{width:42px;height:42px;flex-shrink:0;border-radius:12px;background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.25);display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.k-ico .ic{width:20px;height:20px}
+.k-item b{display:block;font-size:15px;margin-bottom:4px}
+.k-item span{font-size:13.5px;color:var(--text2);line-height:1.55}
+.k-form{background:linear-gradient(160deg,var(--bg3),var(--bg2));border:1px solid var(--border2);border-radius:22px;padding:28px;display:grid;gap:15px}
+.k-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.k-form label{display:grid;gap:7px;font-size:13px;color:var(--text2);font-weight:600}
+.k-form input,.k-form select,.k-form textarea{width:100%;background:rgba(7,7,14,.6);border:1px solid var(--border2);border-radius:11px;padding:12px 14px;color:var(--text);font-family:var(--body);font-size:14.5px;font-weight:400;transition:border-color .18s,box-shadow .18s}
+.k-form textarea{resize:vertical;min-height:120px;line-height:1.55}
+.k-form input:focus,.k-form select:focus,.k-form textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(245,197,24,.14)}
+.k-form input::placeholder,.k-form textarea::placeholder{color:var(--text3)}
+.k-form select option{background:var(--bg3)}
+.k-honey{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.k-form button{justify-content:center;margin-top:4px}
+.k-form button[disabled]{opacity:.6;cursor:progress}
+.k-status{font-size:14px;min-height:1px;display:none;padding:12px 14px;border-radius:11px;line-height:1.5}
+.k-status.on{display:block}
+.k-status.ok{background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.3);color:#9df0bb}
+.k-status.err{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:#ffb4b4}
+.k-note{font-size:12.5px;color:var(--text3);line-height:1.55;margin:0}
 /* powiększanie obrazów (lightbox) */
 [data-zoom]{cursor:zoom-in}
 #lb{position:fixed;inset:0;z-index:200;background:rgba(4,4,10,.94);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;overflow:hidden}
@@ -312,7 +336,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
 #top{position:fixed;right:22px;bottom:22px;width:44px;height:44px;border-radius:12px;background:var(--bg3);border:1px solid var(--border2);color:var(--gold);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,border-color .2s;z-index:90}
 #top.show{opacity:1;pointer-events:auto}#top:hover{border-color:var(--gold)}
 @media (max-width:1180px) and (min-width:981px){.ct-grid{grid-template-columns:repeat(5,1fr)}}
-@media (max-width:980px){.hero .container{grid-template-columns:1fr;text-align:center;gap:44px}.lead{margin:0 auto 28px}.hero-actions,.chips{justify-content:center}.frame{transform:none!important}.float,.wing-deco{display:none}.stats{grid-template-columns:repeat(2,1fr)}.show{grid-template-columns:1fr;gap:26px}.show.rev .show-txt{order:0}.platforms,.steps{grid-template-columns:1fr}.turn3d{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.t3.wide{grid-column:span 2;grid-row:span 1}.t3 figcaption span{font-size:11.5px}.gal-thumbs{grid-template-columns:repeat(4,1fr)}.ct-grid{grid-template-columns:repeat(3,1fr);gap:9px}.ct figcaption{padding:7px 8px 9px}.ct figcaption b{font-size:11.5px}#lb-hint{display:none}#lb-tools{top:auto;bottom:70px}.lb-btn{width:40px;height:40px}.cos-wrap{padding:22px 14px}.cos-tab{font-size:12.5px;padding:7px 11px}.ver-notes{grid-template-columns:1fr}.road{grid-template-columns:1fr}.ver-chip{font-size:11px;padding:6px 10px}section.container{padding:64px 20px}.sec-head{margin-bottom:34px}.author{grid-template-columns:1fr;text-align:center}.author .nick,.author .links{justify-content:center}.nav-links{display:none;position:absolute;top:66px;left:0;right:0;background:rgba(7,7,14,.97);flex-direction:column;padding:18px 24px;gap:16px;border-bottom:1px solid var(--border)}.nav-links.open{display:flex}.burger{display:flex}.cta{padding:32px}}
+@media (max-width:980px){.hero .container{grid-template-columns:1fr;text-align:center;gap:44px}.lead{margin:0 auto 28px}.hero-actions,.chips{justify-content:center}.frame{transform:none!important}.float,.wing-deco{display:none}.stats{grid-template-columns:repeat(2,1fr)}.show{grid-template-columns:1fr;gap:26px}.show.rev .show-txt{order:0}.platforms,.steps{grid-template-columns:1fr}.turn3d{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.t3.wide{grid-column:span 2;grid-row:span 1}.t3 figcaption span{font-size:11.5px}.gal-thumbs{grid-template-columns:repeat(4,1fr)}.ct-grid{grid-template-columns:repeat(3,1fr);gap:9px}.ct figcaption{padding:7px 8px 9px}.ct figcaption b{font-size:11.5px}#lb-hint{display:none}#lb-tools{top:auto;bottom:70px}.lb-btn{width:40px;height:40px}.cos-wrap{padding:22px 14px}.cos-tab{font-size:12.5px;padding:7px 11px}.ver-notes{grid-template-columns:1fr}.road{grid-template-columns:1fr}.kontakt{grid-template-columns:1fr}.k-row{grid-template-columns:1fr}.k-form{padding:20px}.ver-chip{font-size:11px;padding:6px 10px}section.container{padding:64px 20px}.sec-head{margin-bottom:34px}.author{grid-template-columns:1fr;text-align:center}.author .nick,.author .links{justify-content:center}.nav-links{display:none;position:absolute;top:66px;left:0;right:0;background:rgba(7,7,14,.97);flex-direction:column;padding:18px 24px;gap:16px;border-bottom:1px solid var(--border)}.nav-links.open{display:flex}.burger{display:flex}.cta{padding:32px}}
 </style>
 </head>
 <body>
@@ -321,10 +345,10 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
   <div class="nav-inner">
     <a class="brand" href="#"><img src="img/logo3d.png" alt="GoldClient">GOLD<span>CLIENT</span></a>
     <div class="nav-links" id="navLinks">
-      <a href="#funkcje">Funkcje</a><a href="#kosmetyki">Kosmetyki</a><a href="#ruch">Modele 3D</a><a href="#wersje">Wersje</a><a href="#zrzuty">Zrzuty</a><a href="#pobierz">Pobierz</a><a href="#zmiany">Co nowego</a><a href="#faq">FAQ</a>
+      <a href="#funkcje">Funkcje</a><a href="#kosmetyki">Kosmetyki</a><a href="#ruch">Modele 3D</a><a href="#wersje">Wersje</a><a href="#zrzuty">Zrzuty</a><a href="#pobierz">Pobierz</a><a href="#zmiany">Co nowego</a><a href="#kontakt">Kontakt</a><a href="#faq">FAQ</a>
     </div>
     <div style="display:flex;gap:10px;align-items:center">
-      <a class="btn btn-gold btn-sm dl-link" href="https://github.com/diketes/goldclient-launcher/releases/latest"><svg class="ic"><use href="img/icons.svg#b-windows"/></svg>Pobierz</a>
+      <a class="btn btn-gold btn-sm dl-link" href="pobierz.html"><svg class="ic"><use href="img/icons.svg#b-windows"/></svg>Pobierz</a>
       <button class="burger" id="burger" aria-label="Menu"><svg class="ic"><use href="img/icons.svg#i-menu"/></svg></button>
     </div>
   </div>
@@ -339,7 +363,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
       <h1>Graj w Minecrafta<br><span>po swojemu.</span></h1>
       <p class="lead">Animowane peleryny i kosmetyki widoczne w grze, muzyka z YouTube, mody z Modrinth jednym kliknięciem i statystyki grania. Instalujesz raz — aktualizacje przychodzą same.</p>
       <div class="hero-actions">
-        <a class="btn btn-gold dl-link" href="https://github.com/diketes/goldclient-launcher/releases/latest"><svg class="ic"><use href="img/icons.svg#b-windows"/></svg>Pobierz na Windows <small class="dl-ver"></small></a>
+        <a class="btn btn-gold dl-link" href="pobierz.html"><svg class="ic"><use href="img/icons.svg#b-windows"/></svg>Pobierz na Windows <small class="dl-ver"></small></a>
         <a class="btn btn-ghost" href="#zrzuty"><svg class="ic"><use href="img/icons.svg#i-image"/></svg>Zobacz, jak wygląda</a>
       </div>
       <div class="chips">
@@ -1303,7 +1327,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
       <div class="os"><svg class="ic"><use href="img/icons.svg#b-windows"/></svg></div>
       <h3>Windows <span class="ver-pill dl-pill" hidden><i></i><span class="dl-ver-txt"></span></span></h3>
       <p>Windows 10 lub 11, 64-bit. Wymagana Java — launcher sam ją wykryje (polecamy Adoptium 21).</p>
-      <a class="btn btn-gold dl-link" href="https://github.com/diketes/goldclient-launcher/releases/latest"><svg class="ic"><use href="img/icons.svg#i-download"/></svg>Pobierz instalator <small class="dl-size-txt"></small></a>
+      <a class="btn btn-gold dl-link" href="pobierz.html"><svg class="ic"><use href="img/icons.svg#i-download"/></svg>Pobierz instalator <small class="dl-size-txt"></small></a>
     </div>
     <div class="plat">
       <div class="os"><svg class="ic"><use href="img/icons.svg#b-apple"/></svg></div>
@@ -1318,7 +1342,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
       <span class="btn btn-soon"><svg class="ic"><use href="img/icons.svg#i-x"/></svg>Niedostępne</span>
     </div>
   </div>
-  <div class="note rv"><svg class="ic"><use href="img/icons.svg#i-shield-check"/></svg><div><b>Windows pokazuje ostrzeżenie SmartScreen?</b> To normalne przy nowych programach bez płatnego certyfikatu. Kliknij „Więcej informacji” → „Uruchom mimo to”. Instalator pochodzi wyłącznie z naszego GitHuba, a każda aktualizacja jest sprawdzana sumą kontrolną SHA-512.</div></div>
+  <div class="note rv"><svg class="ic"><use href="img/icons.svg#i-shield-check"/></svg><div><b>Windows pokazuje ostrzeżenie SmartScreen?</b> To normalne przy nowych programach bez płatnego certyfikatu. Kliknij „Więcej informacji” → „Uruchom mimo to”. Instalator pobierasz wyłącznie z goldclient.pl, a każda aktualizacja jest sprawdzana sumą kontrolną SHA-512.</div></div>
   <div class="steps rv">
     <div class="step"><div class="n">1</div><h4>Pobierz i zainstaluj</h4><p>Uruchom instalator, wybierz folder, gotowe. Skrót pojawi się na pulpicie.</p></div>
     <div class="step"><div class="n">2</div><h4>Zaloguj się</h4><p>Konto Microsoft (Minecraft premium) albo dodaj konto offline.</p></div>
@@ -1328,7 +1352,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
 </section>
 
 <section id="zmiany" class="container">
-  <div class="sec-head rv"><div class="kicker">Co nowego</div><h2>Historia wersji</h2><p>Lista wydań pobierana prosto z GitHuba. Launcher aktualizuje się do najnowszej sam.</p></div>
+  <div class="sec-head rv"><div class="kicker">Co nowego</div><h2>Historia wersji</h2><p>Wszystkie wydania launchera w jednym miejscu. Launcher aktualizuje się do najnowszej wersji sam.</p></div>
   <div class="changelog rv" id="changelog"><div class="rel"><div class="rel-h"><b>Ładowanie…</b></div></div></div>
 </section>
 
@@ -1338,12 +1362,12 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
     <div>
       <div class="kicker">O projekcie</div>
       <h3>Cześć, tu Diketes.</h3>
-      <div class="nick"><img src="img/diketes-head.png" alt="">@diketes na GitHubie</div>
+      <div class="nick"><img src="img/diketes-head.png" alt="">@diketes · autor GoldClienta</div>
       <p>GoldClienta robię sam, po godzinach. Zaczęło się od tego, że brakowało mi launchera, w którym mody, muzyka i kosmetyki są w jednym miejscu i nie trzeba nic ręcznie kopiować po folderach. Z małego skryptu zrobił się cały program z własnym modem.</p>
-      <p>Jeśli coś nie działa albo masz pomysł na nowy kosmetyk lub funkcję — napisz na GitHubie. Każde zgłoszenie czytam, a poprawki wychodzą jako automatyczne aktualizacje.</p>
+      <p>Jeśli coś nie działa albo masz pomysł na nowy kosmetyk lub funkcję — napisz do mnie przez formularz na dole strony. Każdą wiadomość czytam, a poprawki wychodzą jako automatyczne aktualizacje.</p>
       <div class="links">
-        <a class="btn btn-ghost btn-sm" href="https://github.com/diketes/goldclient-launcher/issues" target="_blank" rel="noopener"><svg class="ic"><use href="img/icons.svg#i-bug"/></svg>Zgłoś błąd lub pomysł</a>
-        <a class="btn btn-ghost btn-sm" href="https://github.com/diketes" target="_blank" rel="noopener"><svg class="ic"><use href="img/icons.svg#b-github"/></svg>GitHub</a>
+        <a class="btn btn-gold btn-sm" href="#kontakt"><svg class="ic"><use href="img/icons.svg#i-messages-square"/></svg>Napisz do mnie</a>
+        <a class="btn btn-ghost btn-sm" href="#plany"><svg class="ic"><use href="img/icons.svg#i-rocket"/></svg>Zobacz plany</a>
       </div>
     </div>
   </div>
@@ -1358,7 +1382,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
         <li>Kosmetyki widoczne w grze przez własny mod</li>
         <li>Mody z Modrinth i kontrola zgodności</li>
         <li>Odtwarzacz muzyki w launcherze i w grze</li>
-        <li>Obowiązkowe aktualizacje z GitHuba</li>
+        <li>Obowiązkowe aktualizacje w tle</li>
         <li>Wersje pobierane na żywo z Mojang i Fabric</li>
         <li>Automatyczny dobór i pobieranie Javy</li>
       </ul>
@@ -1384,7 +1408,47 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
   </div>
   <div class="road-note rv">
     <svg class="ic"><use href="img/icons.svg#i-messages-square"/></svg>
-    <div>Masz pomysł na kosmetyk albo funkcję? Napisz na GitHubie w zakładce Issues. Czytam każde zgłoszenie, a poprawki trafiają do Was jako automatyczna aktualizacja.</div>
+    <div>Masz pomysł na kosmetyk albo funkcję? Napisz do mnie przez formularz kontaktowy. Czytam każdą wiadomość, a poprawki trafiają do Was jako automatyczna aktualizacja.</div>
+  </div>
+</section>
+
+<section id="kontakt" class="container">
+  <div class="sec-head rv"><div class="kicker">Kontakt</div><h2>Masz pytanie albo znalazłeś błąd?</h2><p>Napisz wprost do autora. Wiadomość trafia na skrzynkę mailową, a odpowiedź dostaniesz na podany adres.</p></div>
+  <div class="kontakt rv">
+    <div class="k-info">
+      <div class="k-item">
+        <span class="k-ico"><svg class="ic"><use href="img/icons.svg#i-bug"/></svg></span>
+        <div><b>Coś nie działa</b><span>Opisz, co robiłeś i co się stało. Podaj wersję Minecrafta i nazwę serwera, jeśli błąd wystąpił w grze.</span></div>
+      </div>
+      <div class="k-item">
+        <span class="k-ico"><svg class="ic"><use href="img/icons.svg#i-sparkles"/></svg></span>
+        <div><b>Pomysł na kosmetyk</b><span>Napisz, co chciałbyś zobaczyć w szafie. Kolejne peleryny, skrzydła i korony powstają z takich zgłoszeń.</span></div>
+      </div>
+      <div class="k-item">
+        <span class="k-ico"><svg class="ic"><use href="img/icons.svg#i-circle-help"/></svg></span>
+        <div><b>Pytanie o launcher</b><span>Instalacja, Java, mody, konta offline. Odpowiadam zwykle tego samego dnia.</span></div>
+      </div>
+    </div>
+    <form class="k-form" id="kForm" novalidate>
+      <div class="k-row">
+        <label>Jak się nazywasz<input type="text" name="nick" maxlength="60" required placeholder="nick z gry albo imię"></label>
+        <label>Twój e-mail<input type="email" name="email" maxlength="120" required placeholder="żebym mógł odpisać"></label>
+      </div>
+      <label>Czego dotyczy wiadomość
+        <select name="temat">
+          <option>Błąd w launcherze</option>
+          <option>Błąd w grze lub z kosmetykami</option>
+          <option>Pomysł na kosmetyk</option>
+          <option>Pytanie o instalację</option>
+          <option>Coś innego</option>
+        </select>
+      </label>
+      <label>Wiadomość<textarea name="tresc" rows="6" maxlength="4000" required placeholder="Opisz sprawę możliwie dokładnie."></textarea></label>
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="k-honey">
+      <button type="submit" class="btn btn-gold" id="kSend"><svg class="ic"><use href="img/icons.svg#i-messages-square"/></svg>Wyślij wiadomość</button>
+      <div class="k-status" id="kStatus" role="status"></div>
+      <p class="k-note">Twój adres służy tylko do odpowiedzi. Wiadomość idzie prosto na skrzynkę autora, nic nie jest publikowane.</p>
+    </form>
   </div>
 </section>
 
@@ -1395,16 +1459,16 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
     <details><summary>Czy inni gracze widzą moje kosmetyki?<svg class="ic"><use href="img/icons.svg#i-chevron-down"/></svg></summary><p>Kosmetyki renderuje mod GoldClient, więc widzą je gracze, którzy również grają na GoldClient. Na serwerze nie trzeba niczego instalować.</p></details>
     <details><summary>Czy będą nowe wersje Minecrafta?<svg class="ic"><use href="img/icons.svg#i-chevron-down"/></svg></summary><p>Tak, automatycznie. Launcher pobiera listę wersji z serwerów Mojang i Fabric przy każdym otwarciu okna wyboru wersji, więc nowe wydanie (i snapshoty, po włączeniu przycisku „Snapshoty”) pojawia się bez aktualizowania launchera. Kosmetyki GoldClient wymagają jednak moda dopasowanego do danej wersji, więc na najnowszych wersjach mogą pojawić się z opóźnieniem. Uwaga na mody z innych źródeł: od Minecrafta 26.1 Fabric używa innych mapowań i mody zbudowane dla starszych wersji nie zadziałają. Launcher wyłącza je dla 26.x automatycznie.</p></details>
     <details><summary>Jaką Javę potrzebuję?<svg class="ic"><use href="img/icons.svg#i-chevron-down"/></svg></summary><p>Żadnej nie musisz instalować. Launcher czyta z pliku wersji Mojang, jakiej Javy potrzebuje dana wersja (17 dla 1.20.1, 21 dla 1.21, 25 dla 26.x), wybiera ją spośród zainstalowanych, a gdy jej brakuje, pobiera runtime od Mojang, tak jak oficjalny launcher.</p></details>
-    <details><summary>Jak działają aktualizacje?<svg class="ic"><use href="img/icons.svg#i-chevron-down"/></svg></summary><p>Przy każdym uruchomieniu launcher pyta GitHub o nową wersję. Jeśli jest, pobiera ją w tle, pokazuje postęp i instaluje automatycznie. Aktualizacje są obowiązkowe, dzięki czemu wszyscy grają na tej samej, najnowszej wersji.</p></details>
+    <details><summary>Jak działają aktualizacje?<svg class="ic"><use href="img/icons.svg#i-chevron-down"/></svg></summary><p>Przy każdym uruchomieniu launcher sprawdza, czy jest nowa wersja. Jeśli jest, pobiera ją w tle, pokazuje postęp i instaluje automatycznie. Aktualizacje są obowiązkowe, dzięki czemu wszyscy grają na tej samej, najnowszej wersji.</p></details>
     <details><summary>Czy muszę mieć Minecrafta premium?<svg class="ic"><use href="img/icons.svg#i-chevron-down"/></svg></summary><p>Z kontem Microsoft grasz normalnie na wszystkich serwerach. Bez niego możesz dodać konto offline i grać na serwerach non-premium.</p></details>
-    <details><summary>Czy to bezpieczne? Antywirus coś krzyczy.<svg class="ic"><use href="img/icons.svg#i-chevron-down"/></svg></summary><p>Launcher nie jest podpisany płatnym certyfikatem, dlatego Windows pokazuje SmartScreen. Pobieraj wyłącznie z <a href="https://github.com/diketes/goldclient-launcher/releases" target="_blank" rel="noopener"><code>github.com/diketes/goldclient-launcher</code></a> — tam jest też lista zmian każdej wersji i zakładka Issues do zgłaszania problemów.</p></details>
+    <details><summary>Czy to bezpieczne? Antywirus coś krzyczy.<svg class="ic"><use href="img/icons.svg#i-chevron-down"/></svg></summary><p>Launcher nie jest podpisany płatnym certyfikatem, dlatego Windows pokazuje SmartScreen. Pobieraj wyłącznie z <a href="https://goldclient.pl/"><code>goldclient.pl</code></a> — instalatory spoza tej strony mogą być podmienione. Listę zmian każdej wersji znajdziesz wyżej, w sekcji „Co nowego”.</p></details>
   </div>
 </section>
 
 <section class="container">
   <div class="cta rv">
     <div><h2>Gotowy? Zajmie to minutę.</h2><p>Pobierz, zaloguj się, wybierz wersję i graj z kosmetykami.</p></div>
-    <a class="btn btn-gold dl-link" href="https://github.com/diketes/goldclient-launcher/releases/latest"><svg class="ic"><use href="img/icons.svg#b-windows"/></svg>Pobierz na Windows <small class="dl-ver"></small></a>
+    <a class="btn btn-gold dl-link" href="pobierz.html"><svg class="ic"><use href="img/icons.svg#b-windows"/></svg>Pobierz na Windows <small class="dl-ver"></small></a>
   </div>
 </section>
 
@@ -1412,7 +1476,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
   <div class="container">
     <div class="foot-inner">
       <div class="brand"><img src="img/logo3d.png" alt="">GOLD<span>CLIENT</span></div>
-      <div style="display:flex;gap:22px;flex-wrap:wrap"><a href="https://github.com/diketes/goldclient-launcher" target="_blank" rel="noopener"><svg class="ic"><use href="img/icons.svg#b-github"/></svg>GitHub</a><a href="https://github.com/diketes/goldclient-launcher/releases" target="_blank" rel="noopener"><svg class="ic"><use href="img/icons.svg#i-package"/></svg>Wydania</a><a href="https://github.com/diketes/goldclient-launcher/issues" target="_blank" rel="noopener"><svg class="ic"><use href="img/icons.svg#i-bug"/></svg>Zgłoś błąd</a><a href="#pobierz"><svg class="ic"><use href="img/icons.svg#i-download"/></svg>Pobierz</a></div>
+      <div style="display:flex;gap:22px;flex-wrap:wrap"><a href="#pobierz"><svg class="ic"><use href="img/icons.svg#i-download"/></svg>Pobierz</a><a href="#kosmetyki"><svg class="ic"><use href="img/icons.svg#i-crown"/></svg>Kosmetyki</a><a href="#zmiany"><svg class="ic"><use href="img/icons.svg#i-package"/></svg>Co nowego</a><a href="#kontakt"><svg class="ic"><use href="img/icons.svg#i-messages-square"/></svg>Kontakt</a></div>
     </div>
     <p class="credits">© 2026 GoldClient · NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT. Minecraft jest znakiem towarowym Mojang AB.<br>
     Kafelki kosmetyków to modele wyrenderowane silnikiem 3D launchera. Zrzuty ekranu pokazują przykładowe dane — ścieżki, adresy serwerów i parametry komputera są zastąpione ogólnymi.<br>
@@ -1466,11 +1530,58 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
   }
   $$('#galThumbs button').forEach(b => b.onclick = () => { $$('#galThumbs button').forEach(x => x.classList.remove('on')); b.classList.add('on'); const img = $('#galImg'); img.style.opacity = 0; setTimeout(() => { img.src = b.dataset.src; img.dataset.cap = b.dataset.cap; img.onload = () => img.style.opacity = 1; }, 150); $('#galCap').innerHTML = b.dataset.cap; });
 
+  // ── formularz kontaktowy ──────────────────────────────────────────
+  // Adres odbiorcy nie jest wpisany w treść strony; składany jest dopiero przy wysyłce.
+  const kForm = $('#kForm');
+  if (kForm) {
+    const kStatus = $('#kStatus'), kSend = $('#kSend');
+    const say = (txt, cls) => { kStatus.textContent = txt; kStatus.className = 'k-status on ' + cls; };
+    kForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const f = new FormData(kForm);
+      if (f.get('_honey')) return;
+      const nick = String(f.get('nick') || '').trim();
+      const mail = String(f.get('email') || '').trim();
+      const tresc = String(f.get('tresc') || '').trim();
+      if (nick.length < 2 || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail) || tresc.length < 10) {
+        say('Uzupełnij imię, poprawny e-mail i wiadomość dłuższą niż 10 znaków.', 'err');
+        return;
+      }
+      kSend.disabled = true;
+      say('Wysyłam…', '');
+      try {
+        const A = [95, 54, 115, 15, 79, 24, 125, 84, 32, 110, 13, 83, 13, 38, 8, 110, 93, 1, 71, 21, 120, 87, 121, 126, 9, 71], K = [59, 87, 29, 102, 42, 116, 17];
+        const cel = A.map((n, i) => String.fromCharCode(n ^ K[i % K.length])).join('');
+        const r = await fetch('https://formsubmit.co/ajax/' + cel, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            _subject: 'GoldClient — ' + f.get('temat'),
+            _template: 'table',
+            _captcha: 'false',
+            Nick: nick,
+            Email: mail,
+            Temat: f.get('temat'),
+            Wiadomosc: tresc
+          })
+        });
+        const d = await r.json().catch(() => ({}));
+        if (!r.ok || String(d.success) === 'false') throw new Error(d.message || ('HTTP ' + r.status));
+        say('Wiadomość wysłana. Odpowiedź przyjdzie na podany adres.', 'ok');
+        kForm.reset();
+      } catch (err) {
+        say('Nie udało się wysłać. Napisz jeszcze raz za chwilę.', 'err');
+      } finally {
+        kSend.disabled = false;
+      }
+    });
+  }
+
   // ── zakładki kategorii kosmetyków ──
-  $('#cosTabs .cos-tab').forEach(b => b.onclick = () => {
-    $('#cosTabs .cos-tab').forEach(x => x.classList.remove('on'));
+  $$('#cosTabs .cos-tab').forEach(b => b.onclick = () => {
+    $$('#cosTabs .cos-tab').forEach(x => x.classList.remove('on'));
     b.classList.add('on');
-    $('.cos-panel').forEach(p => p.classList.toggle('on', p.dataset.cat === b.dataset.cat));
+    $$('.cos-panel').forEach(p => p.classList.toggle('on', p.dataset.cat === b.dataset.cat));
   });
 
   // ── powiększanie obrazów ──────────────────────────────────────────
@@ -1495,11 +1606,19 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
     if (sc === MIN) { tx = 0; ty = 0; }
     apply();
   };
+  // wersja HD kosmetyku: w siatce leci lekki plik, w powiększeniu podmieniamy na ostrzejszy
+  const hdSrc = (src) => src.includes('/cos3d/') ? src.split('/cos3d/').join('/cos3d-hd/') : src;
   const show = (i) => {
     if (!shots.length) return;
     at = (i + shots.length) % shots.length;
     const el = shots[at];
-    lbImg.src = el.currentSrc || el.src;
+    const low = el.currentSrc || el.src, hd = el.dataset.full || hdSrc(low);
+    lbImg.src = low;
+    if (hd !== low) {
+      const pre = new Image();
+      pre.onload = () => { if (shots[at] === el && lb.classList.contains('on')) lbImg.src = hd; };
+      pre.src = hd;
+    }
     lbImg.alt = el.alt || '';
     lbCap.innerHTML = el.dataset.cap || el.alt || '';
     const many = shots.length > 1;
@@ -1568,7 +1687,6 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
       const latest = rels[0]; const exe = latest && (latest.assets || []).find(a => /\.exe$/i.test(a.name));
       if (exe) {
         const ver = String(latest.tag_name || '').replace(/^v/, '');
-        $$('.dl-link').forEach(a => a.href = exe.browser_download_url);
         $$('.dl-ver').forEach(el => el.textContent = 'v' + ver);
         $$('.dl-ver-txt').forEach(el => el.textContent = 'v' + ver);
         $$('.dl-pill').forEach(el => el.hidden = false);
@@ -1579,10 +1697,10 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
         const ex = (x.assets || []).find(a => /\.exe$/i.test(a.name));
         const d = new Date(x.published_at).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
         const body = (x.body || '').trim() || 'Aktualizacja launchera.';
-        return `<div class="rel"><div class="rel-h"><b>${esc(x.name || x.tag_name)}</b><span>${d}${ex ? ' · ' + fmtMB(ex.size) : ''}</span></div><pre>${esc(body)}</pre>${ex ? `<a href="${ex.browser_download_url}"><svg class="ic"><use href="img/icons.svg#i-download"/></svg>Pobierz tę wersję</a>` : ''}</div>`;
+        return `<div class="rel"><div class="rel-h"><b>${esc(x.name || x.tag_name)}</b><span>${d}${ex ? ' · ' + fmtMB(ex.size) : ''}</span></div><pre>${esc(body)}</pre>${ex ? `<a href="pobierz.html?v=${encodeURIComponent(x.tag_name)}"><svg class="ic"><use href="img/icons.svg#i-download"/></svg>Pobierz tę wersję</a>` : ''}</div>`;
       }).join('') : '<div class="rel"><div class="rel-h"><b>Brak wydań</b></div></div>';
     } catch (e) {
-      const box = $('#changelog'); if (box) box.innerHTML = '<div class="rel"><div class="rel-h"><b>Nie udało się pobrać listy wydań</b><span><a href="https://github.com/diketes/goldclient-launcher/releases">Zobacz na GitHubie</a></span></div></div>';
+      const box = $('#changelog'); if (box) box.innerHTML = '<div class="rel"><div class="rel-h"><b>Nie udało się pobrać listy wydań</b><span>Odśwież stronę za chwilę</span></div></div>';
     }
   })();
 })();
