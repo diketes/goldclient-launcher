@@ -144,6 +144,54 @@ section.container{padding:96px 24px}
 .cos-foot{display:flex;gap:18px;flex-wrap:wrap;margin-top:4px;font-size:13px;color:var(--text2)}
 .cos-foot span{display:inline-flex;gap:7px;align-items:center}
 .cos-foot .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold)}
+/* zakładki kategorii kosmetyków */
+.cos-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.cos-tab{display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:999px;border:1px solid var(--border2);background:rgba(255,255,255,.03);color:var(--text2);font-family:var(--head);font-weight:600;font-size:14px;cursor:pointer;transition:all .18s}
+.cos-tab:hover{border-color:rgba(245,197,24,.45);color:var(--text)}
+.cos-tab.on{background:linear-gradient(135deg,#ffe066,var(--gold) 55%,#e0ad00);border-color:var(--gold);color:#1a1400;box-shadow:0 6px 20px rgba(245,197,24,.28)}
+.cos-tab span{font-family:var(--pixel);font-size:10px;padding:2px 6px;border-radius:20px;background:rgba(0,0,0,.28);color:inherit;opacity:.85}
+.cos-panel{display:none}
+.cos-panel.on{display:block;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+/* ściana wersji */
+.ver-wall{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-bottom:34px}
+.ver-chip{font-family:var(--pixel);font-size:12.5px;padding:8px 13px;border-radius:10px;border:1px solid var(--border2);background:var(--bg2);color:var(--text2);transition:all .18s}
+.ver-chip:hover{border-color:rgba(245,197,24,.5);color:var(--text);transform:translateY(-2px)}
+.ver-chip.new{background:linear-gradient(135deg,rgba(245,197,24,.22),rgba(245,197,24,.08));border-color:var(--gold);color:var(--gold)}
+.ver-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ver-note{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(160deg,var(--bg3),var(--bg2));border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.vn-ico{width:42px;height:42px;flex-shrink:0;border-radius:12px;background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.25);display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.vn-ico .ic{width:20px;height:20px}
+.ver-note b{display:block;font-size:15px;margin-bottom:4px}
+.ver-note span{font-size:13.5px;color:var(--text2);line-height:1.55}
+/* porównanie */
+.cmp{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg2)}
+.cmp table{width:100%;border-collapse:collapse;min-width:640px}
+.cmp th,.cmp td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--border);font-size:14.5px}
+.cmp thead th{font-family:var(--head);font-size:14px;color:var(--text2);background:rgba(255,255,255,.03)}
+.cmp thead th.gc{color:var(--gold);display:table-cell}
+.cmp thead th.gc .ic{width:15px;height:15px;vertical-align:-2px;margin-right:5px}
+.cmp tbody tr:last-child td{border-bottom:none}
+.cmp tbody tr:hover{background:rgba(255,255,255,.02)}
+.cmp td:first-child{color:var(--text);font-weight:600}
+.cmp td.yes{color:#7ee0a0}
+.cmp td.no{color:var(--text3)}
+.cmp td:last-child{color:#ffe08a}
+/* plany */
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.road-col{background:linear-gradient(160deg,var(--bg3),var(--bg2));border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.road-col.done{border-color:rgba(126,224,160,.3)}
+.road-col.work{border-color:rgba(245,197,24,.32)}
+.road-h{display:flex;align-items:center;gap:9px;font-family:var(--head);font-weight:700;font-size:17px;margin-bottom:14px}
+.road-col.done .road-h{color:#7ee0a0}
+.road-col.work .road-h{color:var(--gold)}
+.road-col.plan .road-h{color:var(--text2)}
+.road-h .ic{width:18px;height:18px}
+.road-col ul{list-style:none;display:grid;gap:9px}
+.road-col li{font-size:14px;color:var(--text2);padding-left:16px;position:relative;line-height:1.5}
+.road-col li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.45}
+.road-note{display:flex;gap:14px;align-items:flex-start;margin-top:20px;background:rgba(245,197,24,.06);border:1px solid rgba(245,197,24,.22);border-radius:var(--radius);padding:18px 20px;font-size:14.5px;color:var(--text2)}
+.road-note .ic{width:20px;height:20px;color:var(--gold);flex-shrink:0;margin-top:2px}
 /* powiększanie obrazów (lightbox) */
 [data-zoom]{cursor:zoom-in}
 #lb{position:fixed;inset:0;z-index:200;background:rgba(4,4,10,.94);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;overflow:hidden}
@@ -264,7 +312,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
 #top{position:fixed;right:22px;bottom:22px;width:44px;height:44px;border-radius:12px;background:var(--bg3);border:1px solid var(--border2);color:var(--gold);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,border-color .2s;z-index:90}
 #top.show{opacity:1;pointer-events:auto}#top:hover{border-color:var(--gold)}
 @media (max-width:1180px) and (min-width:981px){.ct-grid{grid-template-columns:repeat(5,1fr)}}
-@media (max-width:980px){.hero .container{grid-template-columns:1fr;text-align:center;gap:44px}.lead{margin:0 auto 28px}.hero-actions,.chips{justify-content:center}.frame{transform:none!important}.float,.wing-deco{display:none}.stats{grid-template-columns:repeat(2,1fr)}.show{grid-template-columns:1fr;gap:26px}.show.rev .show-txt{order:0}.platforms,.steps{grid-template-columns:1fr}.turn3d{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.t3.wide{grid-column:span 2;grid-row:span 1}.t3 figcaption span{font-size:11.5px}.gal-thumbs{grid-template-columns:repeat(4,1fr)}.ct-grid{grid-template-columns:repeat(3,1fr);gap:9px}.ct figcaption{padding:7px 8px 9px}.ct figcaption b{font-size:11.5px}#lb-hint{display:none}#lb-tools{top:auto;bottom:70px}.lb-btn{width:40px;height:40px}.cos-wrap{padding:22px 16px}section.container{padding:64px 20px}.sec-head{margin-bottom:34px}.author{grid-template-columns:1fr;text-align:center}.author .nick,.author .links{justify-content:center}.nav-links{display:none;position:absolute;top:66px;left:0;right:0;background:rgba(7,7,14,.97);flex-direction:column;padding:18px 24px;gap:16px;border-bottom:1px solid var(--border)}.nav-links.open{display:flex}.burger{display:flex}.cta{padding:32px}}
+@media (max-width:980px){.hero .container{grid-template-columns:1fr;text-align:center;gap:44px}.lead{margin:0 auto 28px}.hero-actions,.chips{justify-content:center}.frame{transform:none!important}.float,.wing-deco{display:none}.stats{grid-template-columns:repeat(2,1fr)}.show{grid-template-columns:1fr;gap:26px}.show.rev .show-txt{order:0}.platforms,.steps{grid-template-columns:1fr}.turn3d{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.t3.wide{grid-column:span 2;grid-row:span 1}.t3 figcaption span{font-size:11.5px}.gal-thumbs{grid-template-columns:repeat(4,1fr)}.ct-grid{grid-template-columns:repeat(3,1fr);gap:9px}.ct figcaption{padding:7px 8px 9px}.ct figcaption b{font-size:11.5px}#lb-hint{display:none}#lb-tools{top:auto;bottom:70px}.lb-btn{width:40px;height:40px}.cos-wrap{padding:22px 14px}.cos-tab{font-size:12.5px;padding:7px 11px}.ver-notes{grid-template-columns:1fr}.road{grid-template-columns:1fr}.ver-chip{font-size:11px;padding:6px 10px}section.container{padding:64px 20px}.sec-head{margin-bottom:34px}.author{grid-template-columns:1fr;text-align:center}.author .nick,.author .links{justify-content:center}.nav-links{display:none;position:absolute;top:66px;left:0;right:0;background:rgba(7,7,14,.97);flex-direction:column;padding:18px 24px;gap:16px;border-bottom:1px solid var(--border)}.nav-links.open{display:flex}.burger{display:flex}.cta{padding:32px}}
 </style>
 </head>
 <body>
@@ -273,7 +321,7 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
   <div class="nav-inner">
     <a class="brand" href="#"><img src="img/logo3d.png" alt="GoldClient">GOLD<span>CLIENT</span></a>
     <div class="nav-links" id="navLinks">
-      <a href="#funkcje">Funkcje</a><a href="#kosmetyki">Kosmetyki</a><a href="#ruch">Modele 3D</a><a href="#zrzuty">Zrzuty ekranu</a><a href="#pobierz">Pobierz</a><a href="#zmiany">Co nowego</a><a href="#faq">FAQ</a>
+      <a href="#funkcje">Funkcje</a><a href="#kosmetyki">Kosmetyki</a><a href="#ruch">Modele 3D</a><a href="#wersje">Wersje</a><a href="#zrzuty">Zrzuty</a><a href="#pobierz">Pobierz</a><a href="#zmiany">Co nowego</a><a href="#faq">FAQ</a>
     </div>
     <div style="display:flex;gap:10px;align-items:center">
       <a class="btn btn-gold btn-sm dl-link" href="https://github.com/diketes/goldclient-launcher/releases/latest"><svg class="ic"><use href="img/icons.svg#b-windows"/></svg>Pobierz</a>
@@ -315,8 +363,8 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
 <div class="container">
   <div class="stats rv">
     <div class="stat"><b>0 zł</b><span>launcher i podstawowe kosmetyki</span></div>
-    <div class="stat"><b>49+</b><span>wersji Minecrafta, nowe dodają się same</span></div>
-    <div class="stat"><b>9</b><span>kategorii kosmetyków</span></div>
+    <div class="stat"><b>49</b><span>wersji Minecrafta, nowe dodają się same</span></div>
+    <div class="stat"><b>133</b><span>modele kosmetyków w 9 kategoriach</span></div>
     <div class="stat"><b>1 klik</b><span>mody z Modrinth</span></div>
   </div>
 </div>
@@ -383,322 +431,731 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
 <section id="kosmetyki" class="container">
   <div class="sec-head rv"><div class="kicker">Kosmetyki</div><h2>Co możesz na siebie założyć</h2><p>Każdy kafelek to model wyrenderowany silnikiem 3D z launchera — dokładnie tak wygląda w szafie i na postaci w grze. Kliknij, żeby powiększyć.</p></div>
   <div class="cos-wrap rv">
-    <div class="cos-row" id="k-peleryny"><h3>Peleryny</h3><span>40 wzorów w launcherze · 15 animowanych</span></div>
-    <div class="ct-grid">
-      <figure class="ct r-leg free">
-        <img src="img/cos3d/cape/c26.webp" alt="Zachód Słońca" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Zachód Słońca</b> — legendarny, dostępny od razu">
-        <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span><span class="ct-anim">ANIM</span>
-        <figcaption><b>Zachód Słońca</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/cape/c27.webp" alt="Ocean Waves" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Ocean Waves</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
-        <figcaption><b>Ocean Waves</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/cape/c28.webp" alt="Płynąca Lawa" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Płynąca Lawa</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
-        <figcaption><b>Płynąca Lawa</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/cape/c29.webp" alt="Matrix" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Matrix</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
-        <figcaption><b>Matrix</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-rar">
-        <img src="img/cos3d/cape/c30.webp" alt="RGB Cycle" width="448" height="320" loading="lazy" data-zoom data-cap="<b>RGB Cycle</b> — rzadki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
-        <figcaption><b>RGB Cycle</b><span>Rzadki</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/cape/c31.webp" alt="GoldClient G" width="448" height="320" loading="lazy" data-zoom data-cap="<b>GoldClient G</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
-        <figcaption><b>GoldClient G</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/cape/c33.webp" alt="Galaktyka" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Galaktyka</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
-        <figcaption><b>Galaktyka</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/cape/c34.webp" alt="Zorza Polarna" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Zorza Polarna</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
-        <figcaption><b>Zorza Polarna</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-rar">
-        <img src="img/cos3d/cape/c35.webp" alt="Wodospad" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Wodospad</b> — rzadki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
-        <figcaption><b>Wodospad</b><span>Rzadki</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/cape/c37.webp" alt="Ognisko" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Ognisko</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
-        <figcaption><b>Ognisko</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-rar">
-        <img src="img/cos3d/cape/c38.webp" alt="Śnieżyca" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Śnieżyca</b> — rzadki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
-        <figcaption><b>Śnieżyca</b><span>Rzadki</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/cape/c39.webp" alt="Planeta Ziemia" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Planeta Ziemia</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
-        <figcaption><b>Planeta Ziemia</b><span>Legendarny</span></figcaption>
-      </figure>
+    <div class="cos-tabs" id="cosTabs">
+      <button class="cos-tab on" data-cat="capes" type="button">Peleryny<span>40</span></button>
+      <button class="cos-tab" data-cat="wings" type="button">Skrzydła<span>10</span></button>
+      <button class="cos-tab" data-cat="crowns" type="button">Korony<span>18</span></button>
+      <button class="cos-tab" data-cat="pets" type="button">Zwierzaki<span>20</span></button>
+      <button class="cos-tab" data-cat="auras" type="button">Aury<span>9</span></button>
+      <button class="cos-tab" data-cat="effects" type="button">Efekty<span>9</span></button>
+      <button class="cos-tab" data-cat="hats" type="button">Nakrycia głowy<span>17</span></button>
+      <button class="cos-tab" data-cat="boots" type="button">Buty<span>5</span></button>
+      <button class="cos-tab" data-cat="gloves" type="button">Rękawice<span>5</span></button>
     </div>
-    <div class="cos-row" id="k-skrzydla"><h3>Skrzydła</h3><span>10 par · noszone na plecach</span></div>
-    <div class="ct-grid">
-      <figure class="ct r-leg free">
-        <img src="img/cos3d/wing/w1.webp" alt="Angel Wings" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Angel Wings</b> — legendarny, dostępny od razu">
-        <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span>
-        <figcaption><b>Angel Wings</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/wing/w2.webp" alt="Dark Wings" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Dark Wings</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Dark Wings</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/wing/w3.webp" alt="Dragon Wings" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Dragon Wings</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Dragon Wings</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-rar">
-        <img src="img/cos3d/wing/w4.webp" alt="Crystal Wings" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Crystal Wings</b> — rzadki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Crystal Wings</b><span>Rzadki</span></figcaption>
-      </figure>
-      <figure class="ct r-rar">
-        <img src="img/cos3d/wing/w5.webp" alt="Feather Wings" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Feather Wings</b> — rzadki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Feather Wings</b><span>Rzadki</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/wing/w10.webp" alt="Wielkie Anielskie" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Wielkie Anielskie</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Wielkie Anielskie</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/wing/w11.webp" alt="Smocze Ostrza" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Smocze Ostrza</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Smocze Ostrza</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/wing/w12.webp" alt="Tęczowy Motyl" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Tęczowy Motyl</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Tęczowy Motyl</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/wing/w13.webp" alt="Feniks Heraldyczny" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Feniks Heraldyczny</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Feniks Heraldyczny</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/wing/w14.webp" alt="Wróżkowe" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Wróżkowe</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Wróżkowe</b><span>Epicki</span></figcaption>
-      </figure>
+    <div class="cos-panel on" data-cat="capes">
+      <div class="cos-row"><h3>Peleryny</h3><span>40 modeli · na plecach, 15 z nich animowanych · 1 za darmo</span></div>
+      <div class="ct-grid">
+        <figure class="ct r-leg">
+          <img src="img/cos3d/cape/c1.webp" alt="GoldClient OG" width="384" height="274" loading="lazy" data-zoom data-cap="<b>GoldClient OG</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>GoldClient OG</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/cape/c2.webp" alt="Marble Stone" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Marble Stone</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Marble Stone</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/cape/c3.webp" alt="Shadow Void" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Shadow Void</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Shadow Void</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/cape/c4.webp" alt="Crimson Fury" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Crimson Fury</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Crimson Fury</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/cape/c5.webp" alt="Emerald Isle" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Emerald Isle</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Emerald Isle</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-com">
+          <img src="img/cos3d/cape/c6.webp" alt="Classic Blue" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Classic Blue</b> — zwykły, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Classic Blue</b><span>Zwykły</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/cape/c7.webp" alt="Galaxy" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Galaxy</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Galaxy</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/cape/c8.webp" alt="Frozen Tundra" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Frozen Tundra</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Frozen Tundra</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/cape/c9.webp" alt="Lava Flow" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Lava Flow</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Lava Flow</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/cape/c10.webp" alt="Forest Spirit" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Forest Spirit</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Forest Spirit</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/cape/c11.webp" alt="Deep Ocean" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Deep Ocean</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Deep Ocean</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/cape/c12.webp" alt="Sunset" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Sunset</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Sunset</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/cape/c13.webp" alt="Aurora" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Aurora</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Aurora</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/cape/c14.webp" alt="Blood Moon" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Blood Moon</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Blood Moon</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-com">
+          <img src="img/cos3d/cape/c15.webp" alt="Arctic Snow" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Arctic Snow</b> — zwykły, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Arctic Snow</b><span>Zwykły</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/cape/c16.webp" alt="GoldClient Logo" width="384" height="274" loading="lazy" data-zoom data-cap="<b>GoldClient Logo</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>GoldClient Logo</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/cape/c17.webp" alt="Feather Style" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Feather Style</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Feather Style</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/cape/c18.webp" alt="Hypixel Network" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Hypixel Network</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Hypixel Network</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/cape/c19.webp" alt="CraftRise PL" width="384" height="274" loading="lazy" data-zoom data-cap="<b>CraftRise PL</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>CraftRise PL</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/cape/c20.webp" alt="Poland Flag" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Poland Flag</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Poland Flag</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-com">
+          <img src="img/cos3d/cape/c21.webp" alt="Checkered" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Checkered</b> — zwykły, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Checkered</b><span>Zwykły</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/cape/c22.webp" alt="Rainbow" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Rainbow</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Rainbow</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/cape/c23.webp" alt="Starry Night" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Starry Night</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Starry Night</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/cape/c24.webp" alt="OptiFine" width="384" height="274" loading="lazy" data-zoom data-cap="<b>OptiFine</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>OptiFine</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-com">
+          <img src="img/cos3d/cape/c25.webp" alt="Fabric Modded" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Fabric Modded</b> — zwykły, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Fabric Modded</b><span>Zwykły</span></figcaption>
+        </figure>
+        <figure class="ct r-leg free">
+          <img src="img/cos3d/cape/c26.webp" alt="Zachód Słońca" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Zachód Słońca</b> — legendarny, dostępny od razu">
+          <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Zachód Słońca</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/cape/c27.webp" alt="Ocean Waves" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Ocean Waves</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Ocean Waves</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/cape/c28.webp" alt="Płynąca Lawa" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Płynąca Lawa</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Płynąca Lawa</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/cape/c29.webp" alt="Matrix" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Matrix</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Matrix</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/cape/c30.webp" alt="RGB Cycle" width="384" height="274" loading="lazy" data-zoom data-cap="<b>RGB Cycle</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>RGB Cycle</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/cape/c31.webp" alt="GoldClient G" width="384" height="274" loading="lazy" data-zoom data-cap="<b>GoldClient G</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>GoldClient G</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/cape/c32.webp" alt="Burza" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Burza</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Burza</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/cape/c33.webp" alt="Galaktyka" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Galaktyka</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Galaktyka</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/cape/c34.webp" alt="Zorza Polarna" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Zorza Polarna</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Zorza Polarna</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/cape/c35.webp" alt="Wodospad" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Wodospad</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Wodospad</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/cape/c36.webp" alt="Miasto Nocą" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Miasto Nocą</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Miasto Nocą</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/cape/c37.webp" alt="Ognisko" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Ognisko</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Ognisko</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/cape/c38.webp" alt="Śnieżyca" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Śnieżyca</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Śnieżyca</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/cape/c39.webp" alt="Planeta Ziemia" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Planeta Ziemia</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Planeta Ziemia</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/cape/c40.webp" alt="Deszcz" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Deszcz</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Deszcz</b><span>Rzadki</span></figcaption>
+        </figure>
+      </div>
     </div>
-    <div class="cos-row" id="k-korony"><h3>Korony</h3><span>18 modeli · lewitują nad głową</span></div>
-    <div class="ct-grid">
-      <figure class="ct r-leg free">
-        <img src="img/cos3d/crown/cr1.webp" alt="Diamond Crown" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Diamond Crown</b> — legendarny, dostępny od razu">
-        <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span>
-        <figcaption><b>Diamond Crown</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/crown/cr2.webp" alt="Gold Crown" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Gold Crown</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Gold Crown</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-rar">
-        <img src="img/cos3d/crown/cr3.webp" alt="Ruby Crown" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Ruby Crown</b> — rzadki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Ruby Crown</b><span>Rzadki</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/crown/cr4.webp" alt="Void Crown" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Void Crown</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Void Crown</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-com">
-        <img src="img/cos3d/crown/cr5.webp" alt="Laurel Wreath" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Laurel Wreath</b> — zwykły, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Laurel Wreath</b><span>Zwykły</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/crown/cr6.webp" alt="Frost Crown" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Frost Crown</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Frost Crown</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/crown/cr7.webp" alt="Obsidian Crown" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Obsidian Crown</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Obsidian Crown</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-rar">
-        <img src="img/cos3d/crown/cr8.webp" alt="Nature Crown" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Nature Crown</b> — rzadki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Nature Crown</b><span>Rzadki</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/crown/cr9.webp" alt="Blood Crown" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Blood Crown</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Blood Crown</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/crown/cr10.webp" alt="Aureola" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Aureola</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Aureola</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/crown/cr11.webp" alt="Korona Królewska" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Korona Królewska</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Korona Królewska</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/crown/cr12.webp" alt="Neon RGB" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Neon RGB</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Neon RGB</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/crown/cr13.webp" alt="Cesarska" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Cesarska</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Cesarska</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/crown/cr14.webp" alt="Smocza" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Smocza</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Smocza</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/crown/cr15.webp" alt="Słoneczna" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Słoneczna</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Słoneczna</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/crown/cr16.webp" alt="Lodowa Królowa" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Lodowa Królowa</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Lodowa Królowa</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/crown/cr17.webp" alt="Piekielna" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Piekielna</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Piekielna</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/crown/cr18.webp" alt="Galaktyczna" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Galaktyczna</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Galaktyczna</b><span>Legendarny</span></figcaption>
-      </figure>
+    <div class="cos-panel" data-cat="wings">
+      <div class="cos-row"><h3>Skrzydła</h3><span>10 modeli · machają, gdy biegniesz i latasz · 1 za darmo</span></div>
+      <div class="ct-grid">
+        <figure class="ct r-leg free">
+          <img src="img/cos3d/wing/w1.webp" alt="Angel Wings" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Angel Wings</b> — legendarny, dostępny od razu">
+          <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span>
+          <figcaption><b>Angel Wings</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/wing/w2.webp" alt="Dark Wings" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Dark Wings</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Dark Wings</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/wing/w3.webp" alt="Dragon Wings" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Dragon Wings</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Dragon Wings</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/wing/w4.webp" alt="Crystal Wings" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Crystal Wings</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Crystal Wings</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/wing/w5.webp" alt="Feather Wings" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Feather Wings</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Feather Wings</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/wing/w10.webp" alt="Wielkie Anielskie" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Wielkie Anielskie</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Wielkie Anielskie</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/wing/w11.webp" alt="Smocze Ostrza" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Smocze Ostrza</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Smocze Ostrza</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/wing/w12.webp" alt="Tęczowy Motyl" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Tęczowy Motyl</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Tęczowy Motyl</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/wing/w13.webp" alt="Feniks Heraldyczny" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Feniks Heraldyczny</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Feniks Heraldyczny</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/wing/w14.webp" alt="Wróżkowe" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Wróżkowe</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Wróżkowe</b><span>Epicki</span></figcaption>
+        </figure>
+      </div>
     </div>
-    <div class="cos-row" id="k-zwierzaki"><h3>Zwierzaki</h3><span>20 towarzyszy · chodzą przy graczu</span></div>
-    <div class="ct-grid">
-      <figure class="ct r-leg">
-        <img src="img/cos3d/pet/p1.webp" alt="Baby Dragon" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Baby Dragon</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Baby Dragon</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/pet/p2.webp" alt="Fox" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Fox</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Fox</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-rar free">
-        <img src="img/cos3d/pet/p3.webp" alt="Cat" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Cat</b> — rzadki, dostępny od razu">
-        <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span>
-        <figcaption><b>Cat</b><span>Rzadki</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/pet/p4.webp" alt="Bat" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Bat</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Bat</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/pet/p5.webp" alt="Baby Creeper" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Baby Creeper</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Baby Creeper</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-rar">
-        <img src="img/cos3d/pet/p6.webp" alt="Parrot" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Parrot</b> — rzadki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Parrot</b><span>Rzadki</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/pet/p7.webp" alt="Snow Golem" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Snow Golem</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Snow Golem</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-rar">
-        <img src="img/cos3d/pet/p8.webp" alt="Axolotl" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Axolotl</b> — rzadki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Axolotl</b><span>Rzadki</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/pet/p9.webp" alt="Enderman Pet" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Enderman Pet</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Enderman Pet</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-com">
-        <img src="img/cos3d/pet/p10.webp" alt="Baby Pig" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Baby Pig</b> — zwykły, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Baby Pig</b><span>Zwykły</span></figcaption>
-      </figure>
-      <figure class="ct r-rar">
-        <img src="img/cos3d/pet/p11.webp" alt="Baby Wolf" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Baby Wolf</b> — rzadki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Baby Wolf</b><span>Rzadki</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/pet/p12.webp" alt="Phoenix Bird" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Phoenix Bird</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Phoenix Bird</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/pet/p13.webp" alt="Panda" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Panda</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Panda</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/pet/p14.webp" alt="Pszczoła" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Pszczoła</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Pszczoła</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/pet/p15.webp" alt="Allay" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Allay</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Allay</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/pet/p16.webp" alt="Duszek" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Duszek</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Duszek</b><span>Epicki</span></figcaption>
-      </figure>
-      <figure class="ct r-rar">
-        <img src="img/cos3d/pet/p17.webp" alt="Żółw" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Żółw</b> — rzadki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Żółw</b><span>Rzadki</span></figcaption>
-      </figure>
-      <figure class="ct r-rar">
-        <img src="img/cos3d/pet/p18.webp" alt="Sowa" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Sowa</b> — rzadki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Sowa</b><span>Rzadki</span></figcaption>
-      </figure>
-      <figure class="ct r-leg">
-        <img src="img/cos3d/pet/p19.webp" alt="T-Rex" width="448" height="320" loading="lazy" data-zoom data-cap="<b>T-Rex</b> — legendarny, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>T-Rex</b><span>Legendarny</span></figcaption>
-      </figure>
-      <figure class="ct r-epi">
-        <img src="img/cos3d/pet/p20.webp" alt="Robo-Dron" width="448" height="320" loading="lazy" data-zoom data-cap="<b>Robo-Dron</b> — epicki, pojawi się w kolejnej aktualizacji">
-        <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
-        <figcaption><b>Robo-Dron</b><span>Epicki</span></figcaption>
-      </figure>
+    <div class="cos-panel" data-cat="crowns">
+      <div class="cos-row"><h3>Korony</h3><span>18 modeli · lewitują i obracają się nad głową · 1 za darmo</span></div>
+      <div class="ct-grid">
+        <figure class="ct r-leg free">
+          <img src="img/cos3d/crown/cr1.webp" alt="Diamond Crown" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Diamond Crown</b> — legendarny, dostępny od razu">
+          <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span>
+          <figcaption><b>Diamond Crown</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/crown/cr2.webp" alt="Gold Crown" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Gold Crown</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Gold Crown</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/crown/cr3.webp" alt="Ruby Crown" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Ruby Crown</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Ruby Crown</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/crown/cr4.webp" alt="Void Crown" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Void Crown</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Void Crown</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-com">
+          <img src="img/cos3d/crown/cr5.webp" alt="Laurel Wreath" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Laurel Wreath</b> — zwykły, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Laurel Wreath</b><span>Zwykły</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/crown/cr6.webp" alt="Frost Crown" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Frost Crown</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Frost Crown</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/crown/cr7.webp" alt="Obsidian Crown" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Obsidian Crown</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Obsidian Crown</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/crown/cr8.webp" alt="Nature Crown" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Nature Crown</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Nature Crown</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/crown/cr9.webp" alt="Blood Crown" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Blood Crown</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Blood Crown</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/crown/cr10.webp" alt="Aureola" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Aureola</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Aureola</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/crown/cr11.webp" alt="Korona Królewska" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Korona Królewska</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Korona Królewska</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/crown/cr12.webp" alt="Neon RGB" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Neon RGB</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Neon RGB</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/crown/cr13.webp" alt="Cesarska" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Cesarska</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Cesarska</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/crown/cr14.webp" alt="Smocza" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Smocza</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Smocza</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/crown/cr15.webp" alt="Słoneczna" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Słoneczna</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Słoneczna</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/crown/cr16.webp" alt="Lodowa Królowa" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Lodowa Królowa</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Lodowa Królowa</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/crown/cr17.webp" alt="Piekielna" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Piekielna</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Piekielna</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/crown/cr18.webp" alt="Galaktyczna" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Galaktyczna</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Galaktyczna</b><span>Legendarny</span></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="cos-panel" data-cat="pets">
+      <div class="cos-row"><h3>Zwierzaki</h3><span>20 modeli · towarzysz trzyma się przy graczu · 1 za darmo</span></div>
+      <div class="ct-grid">
+        <figure class="ct r-leg">
+          <img src="img/cos3d/pet/p1.webp" alt="Baby Dragon" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Baby Dragon</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Baby Dragon</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/pet/p2.webp" alt="Fox" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Fox</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Fox</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar free">
+          <img src="img/cos3d/pet/p3.webp" alt="Cat" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Cat</b> — rzadki, dostępny od razu">
+          <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span>
+          <figcaption><b>Cat</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/pet/p4.webp" alt="Bat" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Bat</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Bat</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/pet/p5.webp" alt="Baby Creeper" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Baby Creeper</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Baby Creeper</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/pet/p6.webp" alt="Parrot" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Parrot</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Parrot</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/pet/p7.webp" alt="Snow Golem" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Snow Golem</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Snow Golem</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/pet/p8.webp" alt="Axolotl" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Axolotl</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Axolotl</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/pet/p9.webp" alt="Enderman Pet" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Enderman Pet</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Enderman Pet</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-com">
+          <img src="img/cos3d/pet/p10.webp" alt="Baby Pig" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Baby Pig</b> — zwykły, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Baby Pig</b><span>Zwykły</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/pet/p11.webp" alt="Baby Wolf" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Baby Wolf</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Baby Wolf</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/pet/p12.webp" alt="Phoenix Bird" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Phoenix Bird</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Phoenix Bird</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/pet/p13.webp" alt="Panda" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Panda</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Panda</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/pet/p14.webp" alt="Pszczoła" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Pszczoła</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Pszczoła</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/pet/p15.webp" alt="Allay" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Allay</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Allay</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/pet/p16.webp" alt="Duszek" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Duszek</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Duszek</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/pet/p17.webp" alt="Żółw" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Żółw</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Żółw</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/pet/p18.webp" alt="Sowa" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Sowa</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Sowa</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/pet/p19.webp" alt="T-Rex" width="384" height="274" loading="lazy" data-zoom data-cap="<b>T-Rex</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>T-Rex</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/pet/p20.webp" alt="Robo-Dron" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Robo-Dron</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Robo-Dron</b><span>Epicki</span></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="cos-panel" data-cat="auras">
+      <div class="cos-row"><h3>Aury</h3><span>9 modeli · świecące pierścienie u stóp · 1 za darmo</span></div>
+      <div class="ct-grid">
+        <figure class="ct r-leg free">
+          <img src="img/cos3d/aura/a1.webp" alt="Golden Aura" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Golden Aura</b> — legendarny, dostępny od razu">
+          <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span>
+          <figcaption><b>Golden Aura</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/aura/a2.webp" alt="Inferno Aura" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Inferno Aura</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Inferno Aura</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/aura/a3.webp" alt="Blizzard Aura" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Blizzard Aura</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Blizzard Aura</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/aura/a4.webp" alt="Void Aura" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Void Aura</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Void Aura</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/aura/a5.webp" alt="Emerald Aura" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Emerald Aura</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Emerald Aura</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/aura/a6.webp" alt="Blood Aura" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Blood Aura</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Blood Aura</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/aura/a7.webp" alt="Heaven Aura" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Heaven Aura</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Heaven Aura</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/aura/a8.webp" alt="Shadow Aura" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Shadow Aura</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Shadow Aura</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/aura/a9.webp" alt="Rainbow Aura" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Rainbow Aura</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Rainbow Aura</b><span>Legendarny</span></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="cos-panel" data-cat="effects">
+      <div class="cos-row"><h3>Efekty</h3><span>9 modeli · cząsteczki krążące wokół postaci · 1 za darmo</span></div>
+      <div class="ct-grid">
+        <figure class="ct r-rar free">
+          <img src="img/cos3d/effect/e1.webp" alt="Gold Sparks" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Gold Sparks</b> — rzadki, dostępny od razu">
+          <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span>
+          <figcaption><b>Gold Sparks</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/effect/e2.webp" alt="Arcane Magic" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Arcane Magic</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Arcane Magic</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/effect/e3.webp" alt="Fire Trail" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Fire Trail</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Fire Trail</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/effect/e4.webp" alt="Ice Shards" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Ice Shards</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Ice Shards</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-com">
+          <img src="img/cos3d/effect/e5.webp" alt="Shadow Smoke" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Shadow Smoke</b> — zwykły, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Shadow Smoke</b><span>Zwykły</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/effect/e6.webp" alt="Rainbow Trail" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Rainbow Trail</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Rainbow Trail</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/effect/e7.webp" alt="Lightning" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Lightning</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Lightning</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/effect/e8.webp" alt="Void Matter" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Void Matter</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Void Matter</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/effect/e9.webp" alt="Cherry Blossoms" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Cherry Blossoms</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Cherry Blossoms</b><span>Rzadki</span></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="cos-panel" data-cat="hats">
+      <div class="cos-row"><h3>Nakrycia głowy</h3><span>17 modeli · kapelusze, hełmy i czapki · 1 za darmo</span></div>
+      <div class="ct-grid">
+        <figure class="ct r-rar">
+          <img src="img/cos3d/hat/h1.webp" alt="Wizard Hat" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Wizard Hat</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Wizard Hat</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-com free">
+          <img src="img/cos3d/hat/h2.webp" alt="Cowboy Hat" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Cowboy Hat</b> — zwykły, dostępny od razu">
+          <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span>
+          <figcaption><b>Cowboy Hat</b><span>Zwykły</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/hat/h3.webp" alt="Top Hat" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Top Hat</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Top Hat</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/hat/h4.webp" alt="Santa Hat" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Santa Hat</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Santa Hat</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/hat/h5.webp" alt="Knight Helmet" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Knight Helmet</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Knight Helmet</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/hat/h6.webp" alt="Bee Crown" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Bee Crown</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Bee Crown</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-com">
+          <img src="img/cos3d/hat/h7.webp" alt="Party Hat" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Party Hat</b> — zwykły, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Party Hat</b><span>Zwykły</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/hat/h8.webp" alt="Viking Helmet" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Viking Helmet</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Viking Helmet</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/hat/h9.webp" alt="Bunny Ears" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Bunny Ears</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Bunny Ears</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/hat/h10.webp" alt="Frog Hat" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Frog Hat</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Frog Hat</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/hat/h11.webp" alt="Gamer Headset RGB" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Gamer Headset RGB</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Gamer Headset RGB</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/hat/h12.webp" alt="Demon Crown" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Demon Crown</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Demon Crown</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/hat/h13.webp" alt="Bear Hat" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Bear Hat</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Bear Hat</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-com">
+          <img src="img/cos3d/hat/h14.webp" alt="Cow Hat" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Cow Hat</b> — zwykły, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Cow Hat</b><span>Zwykły</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/hat/h16.webp" alt="Christmas Tree" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Christmas Tree</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Christmas Tree</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/hat/h17.webp" alt="8-bit Crown" width="384" height="274" loading="lazy" data-zoom data-cap="<b>8-bit Crown</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>8-bit Crown</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/hat/h18.webp" alt="Flower Crown" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Flower Crown</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span>
+          <figcaption><b>Flower Crown</b><span>Rzadki</span></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="cos-panel" data-cat="boots">
+      <div class="cos-row"><h3>Buty</h3><span>5 modeli · nakładki na stopy z animacją · 1 za darmo</span></div>
+      <div class="ct-grid">
+        <figure class="ct r-leg">
+          <img src="img/cos3d/boot/b1.webp" alt="Fire Boots" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Fire Boots</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Fire Boots</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/boot/b2.webp" alt="RGB Boots" width="384" height="274" loading="lazy" data-zoom data-cap="<b>RGB Boots</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>RGB Boots</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar">
+          <img src="img/cos3d/boot/b3.webp" alt="Ice Boots" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Ice Boots</b> — rzadki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Ice Boots</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg free">
+          <img src="img/cos3d/boot/b4.webp" alt="Gold Boots" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Gold Boots</b> — legendarny, dostępny od razu">
+          <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Gold Boots</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/boot/b5.webp" alt="Blood Boots" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Blood Boots</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Blood Boots</b><span>Epicki</span></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="cos-panel" data-cat="gloves">
+      <div class="cos-row"><h3>Rękawice</h3><span>5 modeli · nakładki na pięści · 1 za darmo</span></div>
+      <div class="ct-grid">
+        <figure class="ct r-leg">
+          <img src="img/cos3d/glove/g1.webp" alt="Fire Fists" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Fire Fists</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Fire Fists</b><span>Legendarny</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/glove/g2.webp" alt="RGB Fists" width="384" height="274" loading="lazy" data-zoom data-cap="<b>RGB Fists</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>RGB Fists</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-rar free">
+          <img src="img/cos3d/glove/g3.webp" alt="Boxing Gloves" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Boxing Gloves</b> — rzadki, dostępny od razu">
+          <span class="ct-b free"><svg class="ic"><use href="img/icons.svg#i-gift"/></svg>za darmo</span>
+          <figcaption><b>Boxing Gloves</b><span>Rzadki</span></figcaption>
+        </figure>
+        <figure class="ct r-epi">
+          <img src="img/cos3d/glove/g4.webp" alt="Ice Fists" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Ice Fists</b> — epicki, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Ice Fists</b><span>Epicki</span></figcaption>
+        </figure>
+        <figure class="ct r-leg">
+          <img src="img/cos3d/glove/g5.webp" alt="Gold Gauntlets" width="384" height="274" loading="lazy" data-zoom data-cap="<b>Gold Gauntlets</b> — legendarny, pojawi się w kolejnej aktualizacji">
+          <span class="ct-b"><svg class="ic"><use href="img/icons.svg#i-lock"/></svg>wkrótce</span><span class="ct-anim">ANIM</span>
+          <figcaption><b>Gold Gauntlets</b><span>Legendarny</span></figcaption>
+        </figure>
+      </div>
     </div>
     <div class="cos-foot">
-      <span><i class="dot"></i> „za darmo” = dostępne od razu po instalacji</span>
-      <span><svg class="ic" style="color:var(--text3)"><use href="img/icons.svg#i-lock"/></svg> przygaszone pojawią się w kolejnych aktualizacjach</span>
-      <span><svg class="ic" style="color:var(--gold)"><use href="img/icons.svg#i-sparkles"/></svg> do tego aury, efekty, nakrycia głowy, buty i rękawice</span>
+      <span><i class="dot"></i> „za darmo” działa od razu po instalacji</span>
+      <span><svg class="ic" style="color:var(--text3)"><use href="img/icons.svg#i-lock"/></svg> przygaszone dojdą w kolejnych aktualizacjach</span>
+      <span><svg class="ic" style="color:var(--gold)"><use href="img/icons.svg#i-sparkles"/></svg> łącznie 133 modele w 9 kategoriach</span>
     </div>
   </div>
 </section>
@@ -729,6 +1186,98 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
   </div>
 </section>
 
+<section id="wersje" class="container">
+  <div class="sec-head rv"><div class="kicker">Wersje gry</div><h2>Zagrasz w każdej wersji Minecrafta</h2><p>Listę launcher pobiera na żywo z serwerów Mojang i Fabric. Gdy wychodzi nowa wersja, pojawia się sama, bez aktualizowania launchera.</p></div>
+  <div class="vers rv">
+    <div class="ver-wall">
+      <span class="ver-chip new">26.2</span>
+      <span class="ver-chip">26.1.2</span>
+      <span class="ver-chip">26.1.1</span>
+      <span class="ver-chip">26.1</span>
+      <span class="ver-chip">1.21.11</span>
+      <span class="ver-chip">1.21.10</span>
+      <span class="ver-chip">1.21.9</span>
+      <span class="ver-chip">1.21.8</span>
+      <span class="ver-chip">1.21.7</span>
+      <span class="ver-chip">1.21.6</span>
+      <span class="ver-chip">1.21.5</span>
+      <span class="ver-chip">1.21.4</span>
+      <span class="ver-chip">1.21.3</span>
+      <span class="ver-chip">1.21.2</span>
+      <span class="ver-chip">1.21.1</span>
+      <span class="ver-chip">1.21</span>
+      <span class="ver-chip">1.20.6</span>
+      <span class="ver-chip">1.20.5</span>
+      <span class="ver-chip">1.20.4</span>
+      <span class="ver-chip">1.20.3</span>
+      <span class="ver-chip">1.20.2</span>
+      <span class="ver-chip">1.20.1</span>
+      <span class="ver-chip">1.20</span>
+      <span class="ver-chip">1.19.4</span>
+      <span class="ver-chip">1.19.3</span>
+      <span class="ver-chip">1.19.2</span>
+      <span class="ver-chip">1.19.1</span>
+      <span class="ver-chip">1.19</span>
+      <span class="ver-chip">1.18.2</span>
+      <span class="ver-chip">1.18.1</span>
+      <span class="ver-chip">1.18</span>
+      <span class="ver-chip">1.17.1</span>
+      <span class="ver-chip">1.17</span>
+      <span class="ver-chip">1.16.5</span>
+      <span class="ver-chip">1.16.4</span>
+      <span class="ver-chip">1.16.3</span>
+      <span class="ver-chip">1.16.2</span>
+      <span class="ver-chip">1.16.1</span>
+      <span class="ver-chip">1.16</span>
+      <span class="ver-chip">1.15.2</span>
+      <span class="ver-chip">1.15.1</span>
+      <span class="ver-chip">1.15</span>
+      <span class="ver-chip">1.14.4</span>
+      <span class="ver-chip">1.14.3</span>
+      <span class="ver-chip">1.14.2</span>
+      <span class="ver-chip">1.14.1</span>
+      <span class="ver-chip">1.14</span>
+      <span class="ver-chip">1.12.2</span>
+      <span class="ver-chip">1.8.9</span>
+    </div>
+    <div class="ver-notes">
+      <div class="ver-note">
+        <span class="vn-ico"><svg class="ic"><use href="img/icons.svg#b-openjdk"/></svg></span>
+        <div><b>Java dobiera się sama</b><span>Launcher czyta z pliku wersji, jakiej Javy potrzeba, i wybiera ją spośród zainstalowanych. Gdy jej brakuje, pobiera ją od Mojang.</span></div>
+      </div>
+      <div class="ver-note">
+        <span class="vn-ico"><svg class="ic"><use href="img/icons.svg#i-layers"/></svg></span>
+        <div><b>Fabric w komplecie</b><span>Loader i Fabric API instalują się razem z grą, w wersji dopasowanej do wybranego wydania.</span></div>
+      </div>
+      <div class="ver-note">
+        <span class="vn-ico"><svg class="ic"><use href="img/icons.svg#i-clock"/></svg></span>
+        <div><b>Snapshoty na życzenie</b><span>Jedno kliknięcie w oknie wyboru wersji pokazuje też wydania testowe.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="porownanie" class="container">
+  <div class="sec-head rv"><div class="kicker">Porównanie</div><h2>Czym różni się od zwykłego launchera</h2><p>Po lewej to, co dostajesz w oficjalnym launcherze Minecrafta. Po prawej to, co dokłada GoldClient.</p></div>
+  <div class="cmp rv">
+    <table>
+      <thead><tr><th>Funkcja</th><th>Oficjalny launcher</th><th class="gc"><svg class="ic"><use href="img/icons.svg#i-crown"/></svg> GoldClient</th></tr></thead>
+      <tbody>
+        <tr><td>Uruchamianie gry</td><td class="yes">tak</td><td class="yes">tak</td></tr>
+        <tr><td>Instalacja Fabric</td><td class="no">ręcznie, osobnym instalatorem</td><td class="yes">jednym kliknięciem</td></tr>
+        <tr><td>Mody</td><td class="no">kopiujesz pliki do folderu</td><td class="yes">wyszukiwarka Modrinth w oknie</td></tr>
+        <tr><td>Zgodność modów z wersją</td><td class="no">sprawdzasz sam</td><td class="yes">sprawdzana automatycznie</td></tr>
+        <tr><td>Kosmetyki widoczne w grze</td><td class="no">brak</td><td class="yes">133 modele w 9 kategoriach</td></tr>
+        <tr><td>Muzyka podczas gry</td><td class="no">brak</td><td class="yes">własne playlisty z YouTube</td></tr>
+        <tr><td>Lista serwerów z pingiem</td><td class="no">dopiero w grze</td><td class="yes">na ekranie głównym</td></tr>
+        <tr><td>Czas gry i statystyki</td><td class="no">brak</td><td class="yes">dzień po dniu</td></tr>
+        <tr><td>Analiza crashy</td><td class="no">surowy plik tekstowy</td><td class="yes">wskazuje winny mod</td></tr>
+        <tr><td>Cena</td><td class="yes">0 zł</td><td class="yes">0 zł</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="zrzuty" class="container">
   <div class="sec-head rv"><div class="kicker">Zrzuty ekranu</div><h2>Tak wygląda launcher</h2><p>Ciemny, złoty interfejs z własnymi tłami. Kliknij miniaturę, żeby zobaczyć ekran.</p></div>
   <div class="gallery rv">
@@ -740,6 +1289,8 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
       <button data-src="img/shot/shot-mody.webp" data-cap="<b>Mody</b> — wyszukiwarka Modrinth i przełączniki jednym kliknięciem"><img src="img/shot/t/shot-mody.webp" alt="" loading="lazy"><span>Mody</span></button>
       <button data-src="img/shot/shot-muzyka.webp" data-cap="<b>Muzyka</b> — playlisty i pobieranie z YouTube"><img src="img/shot/t/shot-muzyka.webp" alt="" loading="lazy"><span>Muzyka</span></button>
       <button data-src="img/shot/shot-ustawienia.webp" data-cap="<b>Ustawienia</b> — RAM, Java, JVM, tła i informacje o systemie"><img src="img/shot/t/shot-ustawienia.webp" alt="" loading="lazy"><span>Ustawienia</span></button>
+      <button data-src="img/shot/shot-grafika.webp" data-cap="<b>Grafika</b> — profile wydajności, limit FPS, cienie i cząsteczki"><img src="img/shot/t/shot-grafika.webp" alt="" loading="lazy"><span>Grafika</span></button>
+      <button data-src="img/shot/shot-skorki.webp" data-cap="<b>Skórki</b> — podgląd 3D postaci i zmiana skina bez wychodzenia z launchera"><img src="img/shot/t/shot-skorki.webp" alt="" loading="lazy"><span>Skórki</span></button>
       <button data-src="img/shot/shot-status.webp" data-cap="<b>Status</b> — moduły, log aktywności i usługi Mojang na żywo"><img src="img/shot/t/shot-status.webp" alt="" loading="lazy"><span>Status</span></button>
     </div>
   </div>
@@ -795,6 +1346,45 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
         <a class="btn btn-ghost btn-sm" href="https://github.com/diketes" target="_blank" rel="noopener"><svg class="ic"><use href="img/icons.svg#b-github"/></svg>GitHub</a>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="plany" class="container">
+  <div class="sec-head rv"><div class="kicker">Plany</div><h2>Co dalej z GoldClientem</h2><p>Uczciwie: co już działa, nad czym pracuję i czego jeszcze nie ma.</p></div>
+  <div class="road rv">
+    <div class="road-col done">
+      <div class="road-h"><svg class="ic"><use href="img/icons.svg#i-check"/></svg> Gotowe</div>
+      <ul>
+        <li>Kosmetyki widoczne w grze przez własny mod</li>
+        <li>Mody z Modrinth i kontrola zgodności</li>
+        <li>Odtwarzacz muzyki w launcherze i w grze</li>
+        <li>Obowiązkowe aktualizacje z GitHuba</li>
+        <li>Wersje pobierane na żywo z Mojang i Fabric</li>
+        <li>Automatyczny dobór i pobieranie Javy</li>
+      </ul>
+    </div>
+    <div class="road-col work">
+      <div class="road-h"><svg class="ic"><use href="img/icons.svg#i-refresh-cw"/></svg> W trakcie</div>
+      <ul>
+        <li>Mod kosmetyków dla wersji 1.21.6 i nowszych</li>
+        <li>Odblokowanie kolejnych kosmetyków z każdej kategorii</li>
+        <li>Więcej animowanych peleryn</li>
+        <li>Statystyki rozbite na serwery</li>
+      </ul>
+    </div>
+    <div class="road-col plan">
+      <div class="road-h"><svg class="ic"><use href="img/icons.svg#i-clock"/></svg> W planach</div>
+      <ul>
+        <li>Wersja na macOS</li>
+        <li>Własne paczki modów do udostępniania</li>
+        <li>Profile ustawień pod różne serwery</li>
+        <li>Podgląd kosmetyków innych graczy</li>
+      </ul>
+    </div>
+  </div>
+  <div class="road-note rv">
+    <svg class="ic"><use href="img/icons.svg#i-messages-square"/></svg>
+    <div>Masz pomysł na kosmetyk albo funkcję? Napisz na GitHubie w zakładce Issues. Czytam każde zgłoszenie, a poprawki trafiają do Was jako automatyczna aktualizacja.</div>
   </div>
 </section>
 
@@ -875,6 +1465,13 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
     setInterval(() => { const im = frames[f = (f + 1) % 16]; if (im.complete && im.naturalWidth) cctx.drawImage(im, 12, 12, 120, 192, 0, 0, 120, 192); }, 110);
   }
   $$('#galThumbs button').forEach(b => b.onclick = () => { $$('#galThumbs button').forEach(x => x.classList.remove('on')); b.classList.add('on'); const img = $('#galImg'); img.style.opacity = 0; setTimeout(() => { img.src = b.dataset.src; img.dataset.cap = b.dataset.cap; img.onload = () => img.style.opacity = 1; }, 150); $('#galCap').innerHTML = b.dataset.cap; });
+
+  // ── zakładki kategorii kosmetyków ──
+  $('#cosTabs .cos-tab').forEach(b => b.onclick = () => {
+    $('#cosTabs .cos-tab').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    $('.cos-panel').forEach(p => p.classList.toggle('on', p.dataset.cat === b.dataset.cat));
+  });
 
   // ── powiększanie obrazów ──────────────────────────────────────────
   const lb = $('#lb'), lbImg = $('#lb-img'), lbCap = $('#lb-cap'), lbZoom = $('#lb-zoom');
