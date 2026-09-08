@@ -192,6 +192,14 @@ section.container{padding:96px 24px}
 .road-col li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.45}
 .road-note{display:flex;gap:14px;align-items:flex-start;margin-top:20px;background:rgba(245,197,24,.06);border:1px solid rgba(245,197,24,.22);border-radius:var(--radius);padding:18px 20px;font-size:14.5px;color:var(--text2)}
 .road-note .ic{width:20px;height:20px;color:var(--gold);flex-shrink:0;margin-top:2px}
+.suma{margin-top:16px;background:linear-gradient(160deg,var(--bg3),var(--bg2));border:1px solid var(--border2);border-radius:16px;padding:20px 22px}
+.suma[hidden]{display:none}
+.suma-h{display:flex;align-items:center;gap:9px;font-size:15px;margin-bottom:10px;color:var(--text)}
+.suma-h .ic{width:18px;height:18px;color:var(--gold)}
+.suma p{font-size:13.5px;color:var(--text2);line-height:1.55;margin:0 0 10px}
+.suma-cmd{background:rgba(7,7,14,.65);border:1px solid var(--border);border-radius:10px;padding:11px 13px;font-family:var(--mono,monospace);font-size:12.5px;color:var(--text2);overflow-x:auto;margin:0 0 10px}
+.suma-hash{font-family:var(--mono,monospace);font-size:12.5px;color:var(--gold);word-break:break-all;background:rgba(245,197,24,.07);border:1px solid rgba(245,197,24,.24);border-radius:10px;padding:11px 13px}
+.suma-note{font-size:12.5px;color:var(--text3);margin:10px 0 0!important}
 /* kontakt */
 .kontakt{display:grid;grid-template-columns:0.85fr 1.15fr;gap:34px;align-items:start}
 .k-info{display:grid;gap:16px}
@@ -1342,7 +1350,14 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
       <span class="btn btn-soon"><svg class="ic"><use href="img/icons.svg#i-x"/></svg>Niedostępne</span>
     </div>
   </div>
-  <div class="note rv"><svg class="ic"><use href="img/icons.svg#i-shield-check"/></svg><div><b>Windows pokazuje ostrzeżenie SmartScreen?</b> To normalne przy nowych programach bez płatnego certyfikatu. Kliknij „Więcej informacji” → „Uruchom mimo to”. Instalator pobierasz wyłącznie z goldclient.pl, a każda aktualizacja jest sprawdzana sumą kontrolną SHA-512.</div></div>
+  <div class="note rv"><svg class="ic"><use href="img/icons.svg#i-shield-check"/></svg><div><b>Windows pisze, że plik nie jest często pobierany?</b> To nie jest wykrycie wirusa. Windows liczy, ile razy dany plik pobrano na świecie, a każde nowe wydanie startuje od zera. W przeglądarce kliknij przy pobranym pliku „…” → <b>Zachowaj</b>, a przy uruchomieniu „Więcej informacji” → <b>Uruchom mimo to</b>. Poniżej możesz sprawdzić, czy plik na pewno jest ten sam, który wydałem.</div></div>
+  <div class="suma rv" id="suma" hidden>
+    <div class="suma-h"><svg class="ic"><use href="img/icons.svg#i-shield-check"/></svg><b>Sprawdź, czy plik jest oryginalny</b></div>
+    <p>Otwórz PowerShell w folderze z pobranym plikiem i wklej polecenie. Wynik musi zgadzać się co do znaku z sumą poniżej.</p>
+    <pre class="suma-cmd" id="suma-cmd">Get-FileHash .\GoldClient-Setup.exe -Algorithm SHA256</pre>
+    <div class="suma-hash" id="suma-hash">—</div>
+    <p class="suma-note">Jeśli suma się nie zgadza, plik pochodzi z innego źródła i nie należy go uruchamiać.</p>
+  </div>
   <div class="steps rv">
     <div class="step"><div class="n">1</div><h4>Pobierz i zainstaluj</h4><p>Uruchom instalator, wybierz folder, gotowe. Skrót pojawi się na pulpicie.</p></div>
     <div class="step"><div class="n">2</div><h4>Zaloguj się</h4><p>Konto Microsoft (Minecraft premium) albo dodaj konto offline.</p></div>
@@ -1692,6 +1707,14 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
         $$('.dl-ver-txt').forEach(el => el.textContent = 'v' + ver);
         $$('.dl-pill').forEach(el => el.hidden = false);
         $$('.dl-size-txt').forEach(el => el.textContent = fmtMB(exe.size));
+        // suma kontrolna pliku — podaje ją serwis, na którym leży wydanie
+        const suma = String(exe.digest || '').replace(/^sha256:/i, '');
+        if (/^[0-9a-f]{64}$/i.test(suma)) {
+          const box = $('#suma');
+          $('#suma-hash').textContent = suma.toLowerCase();
+          $('#suma-cmd').textContent = 'Get-FileHash .\\' + exe.name + ' -Algorithm SHA256';
+          if (box) box.hidden = false;
+        }
       }
       // pokazujemy wyłącznie najnowsze wydanie — starszych wersji nie da się pobrać
       const box = $('#changelog');
