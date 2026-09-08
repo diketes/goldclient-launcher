@@ -58,9 +58,8 @@ a.back{display:inline-block;margin-top:14px;color:#a4a8c8;font-size:13.5px}
     opis.textContent = 'Coś poszło nie tak przy sprawdzaniu najnowszej wersji. Spróbuj odświeżyć stronę za chwilę.';
   }
 
-  var chce = new URLSearchParams(location.search).get('v');
-  var API = 'https://api.github.com/repos/diketes/goldclient-launcher/releases';
-  var url = chce ? API + '/tags/' + encodeURIComponent(chce) : API + '/latest';
+  // zawsze najnowsze wydanie — starszych wersji nie udostępniamy
+  var url = 'https://api.github.com/repos/diketes/goldclient-launcher/releases/latest';
 
   fetch(url, { headers: { Accept: 'application/vnd.github+json' } })
     .then(function (r) { if (!r.ok) throw 0; return r.json(); })
