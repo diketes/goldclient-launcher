@@ -48,6 +48,8 @@ a.back{display:inline-block;margin-top:14px;color:#a4a8c8;font-size:13.5px}
     opis.textContent = 'Jeśli nic się nie dzieje, kliknij przycisk poniżej.';
     info.textContent = 'GoldClient ' + wersja + '  ·  ' + rozmiar;
     akcje.innerHTML = '<a class="btn" href="' + url + '">Pobierz ręcznie</a>';
+    // licznik kliknięć „Pobierz" — 20-bajtowy plik z serwisu wydań, bez ciasteczek i danych o odwiedzającym
+    try { fetch('https://github.com/diketes/goldclient-launcher/releases/download/v1.2.0/www-pobierz.txt?t=' + Date.now(), { mode: 'no-cors', cache: 'no-store', credentials: 'omit', keepalive: true }).catch(function () {}); } catch (e) {}
     location.href = url;
   }
 

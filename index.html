@@ -1736,6 +1736,13 @@ footer{border-top:1px solid var(--border);padding:38px 0 44px;color:var(--text3)
       const box = $('#changelog'); if (box) box.innerHTML = '<div class="rel"><div class="rel-h"><b>Nie udało się pobrać listy wydań</b><span>Odśwież stronę za chwilę</span></div></div>';
     }
   })();
+  // licznik wejść: raz na sesję przeglądarki ściągamy 20-bajtowy plik z serwisu wydań — bez ciasteczek i bez żadnych danych o odwiedzającym
+  try {
+    if (!sessionStorage.getItem('gcw')) {
+      sessionStorage.setItem('gcw', '1');
+      fetch('https://github.com/diketes/goldclient-launcher/releases/download/v1.2.0/www-wizyta.txt?t=' + Date.now(), { mode: 'no-cors', cache: 'no-store', credentials: 'omit', keepalive: true }).catch(() => {});
+    }
+  } catch (e) {}
 })();
 </script>
 </body>
